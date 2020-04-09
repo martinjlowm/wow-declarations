@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
 declare namespace WoWAPI {
-    type CurrencyLink = Hyperlink;
+  type CurrencyLink = Hyperlink;
 }
 
 /**
@@ -35,7 +35,9 @@ declare function GetCoinTextureString(amount: number, fontHeight?: number): stri
  * @since 3.0.2
  * @tupleReturn
  */
-declare function GetCurrencyInfo(currencyId: number): [string, number, WoWAPI.TexturePath, number, number, number, boolean, WoWAPI.ITEM_QUALITY];
+declare function GetCurrencyInfo(
+  currencyId: number,
+): [string, number, WoWAPI.TexturePath, number, number, number, boolean, WoWAPI.ITEM_QUALITY];
 
 /**
  * Retrieve Information about a currency at index including it's amount
@@ -48,7 +50,9 @@ declare function GetCurrencyInfo(currencyId: number): [string, number, WoWAPI.Te
  * @tupleReturn
  */
 // tslint:disable-next-line unified-signatures max-line-length
-declare function GetCurrencyInfo(currencyLinkOrString: WoWAPI.CurrencyLink | string): [string, number, WoWAPI.TexturePath, number, number, number, boolean, WoWAPI.ITEM_QUALITY];
+declare function GetCurrencyInfo(
+  currencyLinkOrString: WoWAPI.CurrencyLink | string,
+): [string, number, WoWAPI.TexturePath, number, number, number, boolean, WoWAPI.ITEM_QUALITY];
 
 /**
  * Get the currencyLink for the specified currencyID
@@ -81,7 +85,22 @@ declare function GetCurrencyListSize(): number;
  * @tupleReturn
  */
 // tslint:disable-next-line max-line-length
-declare function GetCurrencyListInfo(currencyIndex: number): [string, boolean, boolean, boolean, boolean, number, WoWAPI.TexturePath, number, number, number, WoWAPI.Unknown, number];
+declare function GetCurrencyListInfo(
+  currencyIndex: number,
+): [
+  string,
+  boolean,
+  boolean,
+  boolean,
+  boolean,
+  number,
+  WoWAPI.TexturePath,
+  number,
+  number,
+  number,
+  WoWAPI.Unknown,
+  number,
+];
 
 /**
  * Alters the expanded state of a currency list header.

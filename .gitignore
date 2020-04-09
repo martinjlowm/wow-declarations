@@ -1,4 +1,5 @@
 *.tgz
+.log/
 .pnp.js
 .yarn/
 node_modules/

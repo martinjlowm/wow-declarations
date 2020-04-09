@@ -5,25 +5,35 @@ declare type QUEST_FREQUENCY_DAILY = 2;
 declare type QUEST_FREQUENCY_WEEKLY = 3;
 declare type QUEST_FREQUENCY = QUEST_FREQUENCY_NORMAL | QUEST_FREQUENCY_DAILY | QUEST_FREQUENCY_WEEKLY;
 
-declare type GOSSIP_TYPE_BANKER = "banker";
-declare type GOSSIP_TYPE_BATTLEMASTER = "battlemaster";
-declare type GOSSIP_TYPE_BINDER = "binder";
-declare type GOSSIP_TYPE_GOSSIP = "gossip";
-declare type GOSSIP_TYPE_HEALER = "healer";
-declare type GOSSIP_TYPE_PETITION = "petition";
-declare type GOSSIP_TYPE_TABARD = "tabard";
-declare type GOSSIP_TYPE_TAXI = "taxi";
-declare type GOSSIP_TYPE_TRAINER = "trainer";
-declare type GOSSIP_TYPE_UNLEARN = "unlearn";
-declare type GOSSIP_TYPE_VENDOR = "vendor";
-declare type GOSSIP_TYPE_WORKORDER = "workorder";
+declare type GOSSIP_TYPE_BANKER = 'banker';
+declare type GOSSIP_TYPE_BATTLEMASTER = 'battlemaster';
+declare type GOSSIP_TYPE_BINDER = 'binder';
+declare type GOSSIP_TYPE_GOSSIP = 'gossip';
+declare type GOSSIP_TYPE_HEALER = 'healer';
+declare type GOSSIP_TYPE_PETITION = 'petition';
+declare type GOSSIP_TYPE_TABARD = 'tabard';
+declare type GOSSIP_TYPE_TAXI = 'taxi';
+declare type GOSSIP_TYPE_TRAINER = 'trainer';
+declare type GOSSIP_TYPE_UNLEARN = 'unlearn';
+declare type GOSSIP_TYPE_VENDOR = 'vendor';
+declare type GOSSIP_TYPE_WORKORDER = 'workorder';
 
 /**
  * all currently known gossip types
  */
-declare type GOSSIP_TYPE = GOSSIP_TYPE_BANKER | GOSSIP_TYPE_BATTLEMASTER | GOSSIP_TYPE_BINDER | GOSSIP_TYPE_GOSSIP | GOSSIP_TYPE_HEALER |
-    GOSSIP_TYPE_PETITION | GOSSIP_TYPE_TABARD | GOSSIP_TYPE_TAXI | GOSSIP_TYPE_TRAINER | GOSSIP_TYPE_UNLEARN | GOSSIP_TYPE_VENDOR |
-    GOSSIP_TYPE_WORKORDER;
+declare type GOSSIP_TYPE =
+  | GOSSIP_TYPE_BANKER
+  | GOSSIP_TYPE_BATTLEMASTER
+  | GOSSIP_TYPE_BINDER
+  | GOSSIP_TYPE_GOSSIP
+  | GOSSIP_TYPE_HEALER
+  | GOSSIP_TYPE_PETITION
+  | GOSSIP_TYPE_TABARD
+  | GOSSIP_TYPE_TAXI
+  | GOSSIP_TYPE_TRAINER
+  | GOSSIP_TYPE_UNLEARN
+  | GOSSIP_TYPE_VENDOR
+  | GOSSIP_TYPE_WORKORDER;
 
 /**
  * Dismiss the gossip dialog

@@ -1,9 +1,9 @@
 /** @noSelfInFile */
 
 declare namespace WoWAPI {
-    type CharacterTotemElementType = 1 | 2 | 3 | 4;
-    type CharacterRestState = 0 | 1;
-    type CharacterDeathkightRuneType = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  type CharacterTotemElementType = 1 | 2 | 3 | 4;
+  type CharacterRestState = 0 | 1;
+  type CharacterDeathkightRuneType = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 }
 
 /**

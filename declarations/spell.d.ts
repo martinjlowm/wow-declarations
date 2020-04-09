@@ -1,10 +1,10 @@
 /** @noSelfInFile */
 
-declare const BOOKTYPE_SPELL = "spell";
-declare const BOOKTYPE_PET = "pet";
+declare const BOOKTYPE_SPELL = 'spell';
+declare const BOOKTYPE_PET = 'pet';
 
 declare namespace WoWAPI {
-    type BookType = typeof BOOKTYPE_SPELL | typeof BOOKTYPE_PET;
+  type BookType = typeof BOOKTYPE_SPELL | typeof BOOKTYPE_PET;
 }
 
 /**

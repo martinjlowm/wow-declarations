@@ -9,81 +9,86 @@ declare const AUTOCOMPLETE_FLAG_ONLINE = 0x00000020;
 declare const AUTOCOMPLETE_FLAG_ALL = 0xffffffff;
 
 declare namespace WoWAPI {
-    type ChatTypeInfoBody = { r: number, g: number, b: number, id: string, sticky: boolean };
+  type ChatTypeInfoBody = {
+    r: number;
+    g: number;
+    b: number;
+    id: string;
+    sticky: boolean;
+  };
 
-    type ChatTypeInfo = {
-        SYSTEM: ChatTypeInfoBody,
-        SAY: ChatTypeInfoBody,
-        PARTY: ChatTypeInfoBody,
-        RAID: ChatTypeInfoBody,
-        GUILD: ChatTypeInfoBody,
-        OFFICER: ChatTypeInfoBody,
-        YELL: ChatTypeInfoBody,
-        WHISPER: ChatTypeInfoBody,
-        WHISPER_INFORM: ChatTypeInfoBody,
-        REPLY: ChatTypeInfoBody,
-        EMOTE: ChatTypeInfoBody,
-        TEXT_EMOTE: ChatTypeInfoBody,
-        MONSTER_SAY: ChatTypeInfoBody,
-        MONSTER_PARTY: ChatTypeInfoBody,
-        MONSTER_YELL: ChatTypeInfoBody,
-        MONSTER_WHISPER: ChatTypeInfoBody,
-        MONSTER_EMOTE: ChatTypeInfoBody,
-        CHANNEL: ChatTypeInfoBody,
-        CHANNEL_JOIN: ChatTypeInfoBody,
-        CHANNEL_LEAVE: ChatTypeInfoBody,
-        CHANNEL_LIST: ChatTypeInfoBody,
-        CHANNEL_NOTICE: ChatTypeInfoBody,
-        CHANNEL_NOTICE_USER: ChatTypeInfoBody,
-        AFK: ChatTypeInfoBody,
-        DND: ChatTypeInfoBody,
-        IGNORED: ChatTypeInfoBody,
-        SKILL: ChatTypeInfoBody,
-        LOOT: ChatTypeInfoBody,
-        MONEY: ChatTypeInfoBody,
-        OPENING: ChatTypeInfoBody,
-        TRADESKILLS: ChatTypeInfoBody,
-        PET_INFO: ChatTypeInfoBody,
-        COMBAT_MISC_INFO: ChatTypeInfoBody,
-        COMBAT_XP_GAIN: ChatTypeInfoBody,
-        COMBAT_HONOR_GAIN: ChatTypeInfoBody,
-        COMBAT_FACTION_CHANGE: ChatTypeInfoBody,
-        BG_SYSTEN_NEUTRAL: ChatTypeInfoBody,
-        BG_SYSTEM_ALLIANCE: ChatTypeInfoBody,
-        BG_SYSTEN_HORDE: ChatTypeInfoBody,
-        RAID_LEADER: ChatTypeInfoBody,
-        RAID_WARNING: ChatTypeInfoBody,
-        RAID_BOSS_WHISPER: ChatTypeInfoBody,
-        RAID_BOSS_EMOTE: ChatTypeInfoBody,
-        FILTERED: ChatTypeInfoBody,
-        BATTLEGROUND: ChatTypeInfoBody,
-        BATTLEGROUND_LEADER: ChatTypeInfoBody,
-        RESTRICTED: ChatTypeInfoBody,
-        CHANNEL1: ChatTypeInfoBody,
-        CHANNEL2: ChatTypeInfoBody,
-        CHANNEL3: ChatTypeInfoBody,
-        CHANNEL4: ChatTypeInfoBody,
-        CHANNEL5: ChatTypeInfoBody,
-        CHANNEL6: ChatTypeInfoBody,
-        CHANNEL7: ChatTypeInfoBody,
-        CHANNEL8: ChatTypeInfoBody,
-        CHANNEL9: ChatTypeInfoBody,
-        CHANNEL10: ChatTypeInfoBody,
-        ACHIVEMENT: ChatTypeInfoBody,
-        GUILD_ACHIVEMENT: ChatTypeInfoBody
-    };
+  type ChatTypeInfo = {
+    SYSTEM: ChatTypeInfoBody;
+    SAY: ChatTypeInfoBody;
+    PARTY: ChatTypeInfoBody;
+    RAID: ChatTypeInfoBody;
+    GUILD: ChatTypeInfoBody;
+    OFFICER: ChatTypeInfoBody;
+    YELL: ChatTypeInfoBody;
+    WHISPER: ChatTypeInfoBody;
+    WHISPER_INFORM: ChatTypeInfoBody;
+    REPLY: ChatTypeInfoBody;
+    EMOTE: ChatTypeInfoBody;
+    TEXT_EMOTE: ChatTypeInfoBody;
+    MONSTER_SAY: ChatTypeInfoBody;
+    MONSTER_PARTY: ChatTypeInfoBody;
+    MONSTER_YELL: ChatTypeInfoBody;
+    MONSTER_WHISPER: ChatTypeInfoBody;
+    MONSTER_EMOTE: ChatTypeInfoBody;
+    CHANNEL: ChatTypeInfoBody;
+    CHANNEL_JOIN: ChatTypeInfoBody;
+    CHANNEL_LEAVE: ChatTypeInfoBody;
+    CHANNEL_LIST: ChatTypeInfoBody;
+    CHANNEL_NOTICE: ChatTypeInfoBody;
+    CHANNEL_NOTICE_USER: ChatTypeInfoBody;
+    AFK: ChatTypeInfoBody;
+    DND: ChatTypeInfoBody;
+    IGNORED: ChatTypeInfoBody;
+    SKILL: ChatTypeInfoBody;
+    LOOT: ChatTypeInfoBody;
+    MONEY: ChatTypeInfoBody;
+    OPENING: ChatTypeInfoBody;
+    TRADESKILLS: ChatTypeInfoBody;
+    PET_INFO: ChatTypeInfoBody;
+    COMBAT_MISC_INFO: ChatTypeInfoBody;
+    COMBAT_XP_GAIN: ChatTypeInfoBody;
+    COMBAT_HONOR_GAIN: ChatTypeInfoBody;
+    COMBAT_FACTION_CHANGE: ChatTypeInfoBody;
+    BG_SYSTEN_NEUTRAL: ChatTypeInfoBody;
+    BG_SYSTEM_ALLIANCE: ChatTypeInfoBody;
+    BG_SYSTEN_HORDE: ChatTypeInfoBody;
+    RAID_LEADER: ChatTypeInfoBody;
+    RAID_WARNING: ChatTypeInfoBody;
+    RAID_BOSS_WHISPER: ChatTypeInfoBody;
+    RAID_BOSS_EMOTE: ChatTypeInfoBody;
+    FILTERED: ChatTypeInfoBody;
+    BATTLEGROUND: ChatTypeInfoBody;
+    BATTLEGROUND_LEADER: ChatTypeInfoBody;
+    RESTRICTED: ChatTypeInfoBody;
+    CHANNEL1: ChatTypeInfoBody;
+    CHANNEL2: ChatTypeInfoBody;
+    CHANNEL3: ChatTypeInfoBody;
+    CHANNEL4: ChatTypeInfoBody;
+    CHANNEL5: ChatTypeInfoBody;
+    CHANNEL6: ChatTypeInfoBody;
+    CHANNEL7: ChatTypeInfoBody;
+    CHANNEL8: ChatTypeInfoBody;
+    CHANNEL9: ChatTypeInfoBody;
+    CHANNEL10: ChatTypeInfoBody;
+    ACHIVEMENT: ChatTypeInfoBody;
+    GUILD_ACHIVEMENT: ChatTypeInfoBody;
+  };
 
+  /**
+   * the chat frame instance
+   */
+  interface ChatFrame {
     /**
-     * the chat frame instance
+     * add the given message to the frame
+     * @param message the message to add
      */
-    interface ChatFrame {
-
-        /**
-         * add the given message to the frame
-         * @param message the message to add
-         */
-        AddMessage(message: string): void;
-    }
+    AddMessage(message: string): void;
+  }
 }
 
 declare const ChatTypeInfo: WoWAPI.ChatTypeInfo;
@@ -94,7 +99,9 @@ declare const ChatTypeInfo: WoWAPI.ChatTypeInfo;
  * @see https://wow.gamepedia.com/API_GetChatWindowInfo
  * @tupleReturn
  */
-declare function GetChatWindowInfo(frameIndex: number): [string, number, number, number, number, WoWAPI.Flag, WoWAPI.Flag, number];
+declare function GetChatWindowInfo(
+  frameIndex: number,
+): [string, number, number, number, number, WoWAPI.Flag, WoWAPI.Flag, number];
 
 /**
  * Get the channels received by a chat window.
@@ -147,7 +154,13 @@ declare function ChangeChatColor(channelName: string, red: number, green: number
  * @see https://wow.gamepedia.com/API_GetAutoCompleteResults
  * @tupleReturn
  */
-declare function GetAutoCompleteResults(text: string, include: number, exclude: number, maxResults: number, cursorPosition?: number): [...string[]];
+declare function GetAutoCompleteResults(
+  text: string,
+  include: number,
+  exclude: number,
+  maxResults: number,
+  cursorPosition?: number,
+): [...string[]];
 
 /**
  * Return the numeric type index for a specific chat type

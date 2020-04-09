@@ -1,8 +1,8 @@
 /** @noSelfInFile */
 
 declare namespace WoWAPI {
-    type CompanionType = "CRITTER" | "MOUNT";
-    type MountType = 0x1 | 0x2 | 0x4 | 0x8 | 0x10;
+  type CompanionType = 'CRITTER' | 'MOUNT';
+  type MountType = 0x1 | 0x2 | 0x4 | 0x8 | 0x10;
 }
 
 /**
@@ -44,7 +44,10 @@ declare function DismissCompanion(type: WoWAPI.CompanionType): void;
  * @tupleReturn
  */
 // tslint:disable-next-line max-line-length
-declare function GetCompanionInfo(type: WoWAPI.CompanionType, companionIndex: number): [number, string, number, WoWAPI.TexturePath, WoWAPI.Flag, WoWAPI.MountType];
+declare function GetCompanionInfo(
+  type: WoWAPI.CompanionType,
+  companionIndex: number,
+): [number, string, number, WoWAPI.TexturePath, WoWAPI.Flag, WoWAPI.MountType];
 
 /**
  * Returns the number of companions you have

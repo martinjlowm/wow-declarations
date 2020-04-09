@@ -1,41 +1,59 @@
 /** @noSelfInFile */
 
-/// <reference path="auction.d.ts" />
+import '@/auction';
 
 declare namespace WoWAPI {
-    type ITEM_QUALITY_GENERIC = -1;
-    type ITEM_QUALITY_POOR = 0;
-    type ITEM_QUALITY_COMMON = 1;
-    type ITEM_QUALITY_UNCOMMON = 2;
-    type ITEM_QUALITY_RARE = 3;
-    type ITEM_QUALITY_EPIC = 4;
-    type ITEM_QUALITY_LEGENDARY = 5;
-    type ITEM_QUALITY_ARTIFACT = 6;
-    type ITEM_QUALITY_HEIRLOOM = 7;
+  type ITEM_QUALITY_GENERIC = -1;
+  type ITEM_QUALITY_POOR = 0;
+  type ITEM_QUALITY_COMMON = 1;
+  type ITEM_QUALITY_UNCOMMON = 2;
+  type ITEM_QUALITY_RARE = 3;
+  type ITEM_QUALITY_EPIC = 4;
+  type ITEM_QUALITY_LEGENDARY = 5;
+  type ITEM_QUALITY_ARTIFACT = 6;
+  type ITEM_QUALITY_HEIRLOOM = 7;
 
-    /**
-     * all currently known item qualities
-     */
-    type ITEM_QUALITY = ITEM_QUALITY_GENERIC | ITEM_QUALITY_POOR | ITEM_QUALITY_COMMON | ITEM_QUALITY_UNCOMMON |
-        ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_ARTIFACT | ITEM_QUALITY_HEIRLOOM;
+  /**
+   * all currently known item qualities
+   */
+  type ITEM_QUALITY =
+    | ITEM_QUALITY_GENERIC
+    | ITEM_QUALITY_POOR
+    | ITEM_QUALITY_COMMON
+    | ITEM_QUALITY_UNCOMMON
+    | ITEM_QUALITY_RARE
+    | ITEM_QUALITY_EPIC
+    | ITEM_QUALITY_LEGENDARY
+    | ITEM_QUALITY_ARTIFACT
+    | ITEM_QUALITY_HEIRLOOM;
 
-    type BIND_TYPE_NONE = 0;
-    type BIND_TYPE_PICKUP = 1;
-    type BIND_TYPE_EQUIP = 2;
-    type BIND_TYPE_USE = 3;
-    type BIND_TYPE_QUEST = 4;
+  type BIND_TYPE_NONE = 0;
+  type BIND_TYPE_PICKUP = 1;
+  type BIND_TYPE_EQUIP = 2;
+  type BIND_TYPE_USE = 3;
+  type BIND_TYPE_QUEST = 4;
 
-    /**
-     * all currently known bind types
-     */
-    type BIND_TYPE = BIND_TYPE_NONE | BIND_TYPE_PICKUP | BIND_TYPE_EQUIP | BIND_TYPE_USE | BIND_TYPE_QUEST;
+  /**
+   * all currently known bind types
+   */
+  type BIND_TYPE = BIND_TYPE_NONE | BIND_TYPE_PICKUP | BIND_TYPE_EQUIP | BIND_TYPE_USE | BIND_TYPE_QUEST;
 
-    type EquippableItemType = "Miscellaneous" | "Cloth" | "Leather" | "Mail" | "Plate" | "Shields" | "Librams" | "Idols" | "Totems" | "Sigils";
+  type EquippableItemType =
+    | 'Miscellaneous'
+    | 'Cloth'
+    | 'Leather'
+    | 'Mail'
+    | 'Plate'
+    | 'Shields'
+    | 'Librams'
+    | 'Idols'
+    | 'Totems'
+    | 'Sigils';
 
-    /**
-     * a clickable ingame item link
-     */
-    type ItemLink = Hyperlink;
+  /**
+   * a clickable ingame item link
+   */
+  type ItemLink = Hyperlink;
 }
 
 /**
@@ -50,7 +68,10 @@ declare namespace WoWAPI {
  * function behaves as expected. This change was made to address the issue of rogues using "poison swapping" addons to increase their DPS
  * @see https://wow.gamepedia.com/API_EquipItemByName
  */
-declare function EquipItemByName(itemIdentifier: string | number | WoWAPI.ItemLink, slot?: WoWAPI.INVENTORY_SLOT_ID): void;
+declare function EquipItemByName(
+  itemIdentifier: string | number | WoWAPI.ItemLink,
+  slot?: WoWAPI.INVENTORY_SLOT_ID,
+): void;
 
 /**
  * Retrieves the itemLink of one item in the current retrieved list of items from the Auction House
@@ -107,7 +128,11 @@ declare function GetItemCooldown(itemId: number): [number, number, WoWAPI.Flag];
  * @returns The number of items in your possesion, or charges if includeCharges is true and the item has charges
  * @see https://wow.gamepedia.com/API_GetItemCount
  */
-declare function GetItemCount(itemIdentifier: string | number | WoWAPI.ItemLink, includeBank?: boolean, includeCharges?: boolean): number;
+declare function GetItemCount(
+  itemIdentifier: string | number | WoWAPI.ItemLink,
+  includeBank?: boolean,
+  includeCharges?: boolean,
+): number;
 
 /**
  * Gets the bitfield of what types of bags an item can go into or contain
@@ -153,7 +178,27 @@ declare function GetItemIcon(itemId: number): WoWAPI.TexturePath;
  * @tupleReturn
  */
 // tslint:disable-next-line max-line-length
-declare function GetItemInfo(itemIdentifier: string | number | WoWAPI.ItemLink): [string, WoWAPI.ItemLink, WoWAPI.ITEM_QUALITY, number, number, string, string, number, WoWAPI.INVENTORY_SLOT_ID, WoWAPI.TexturePath, number, number, number, WoWAPI.BIND_TYPE, number, number, boolean];
+declare function GetItemInfo(
+  itemIdentifier: string | number | WoWAPI.ItemLink,
+): [
+  string,
+  WoWAPI.ItemLink,
+  WoWAPI.ITEM_QUALITY,
+  number,
+  number,
+  string,
+  string,
+  number,
+  WoWAPI.INVENTORY_SLOT_ID,
+  WoWAPI.TexturePath,
+  number,
+  number,
+  number,
+  WoWAPI.BIND_TYPE,
+  number,
+  number,
+  boolean,
+];
 
 /**
  * Returns instantly-available information about a specific item
@@ -176,7 +221,9 @@ declare function GetItemInfo(itemIdentifier: string | number | WoWAPI.ItemLink):
  * @tupleReturn
  */
 // tslint:disable-next-line max-line-length
-declare function GetItemInfoInstant(itemIdentifier: string | number | WoWAPI.ItemLink): [number, string, string, WoWAPI.INVENTORY_SLOT_ID, WoWAPI.TexturePath, number, number];
+declare function GetItemInfoInstant(
+  itemIdentifier: string | number | WoWAPI.ItemLink,
+): [number, string, string, WoWAPI.INVENTORY_SLOT_ID, WoWAPI.TexturePath, number, number];
 
 /**
  * Returns RGB color codes for an item quality
@@ -319,7 +366,10 @@ declare function IsEquippedItemType(itemType: WoWAPI.EquippableItemType): boolea
  * - If the item is not in range, 0; if the item is in range, 1; if the query is invalid, nil
  * @see https://wow.gamepedia.com/API_IsItemInRange
  */
-declare function IsItemInRange(itemIdentifier: string | number | WoWAPI.ItemLink, unit?: WoWAPI.UnitId): [boolean, WoWAPI.Flag];
+declare function IsItemInRange(
+  itemIdentifier: string | number | WoWAPI.ItemLink,
+  unit?: WoWAPI.UnitId,
+): [boolean, WoWAPI.Flag];
 
 /**
  * unknown

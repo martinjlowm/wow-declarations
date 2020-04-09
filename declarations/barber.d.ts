@@ -1,8 +1,16 @@
 /** @noSelfInFile */
 
 declare namespace WoWAPI {
-    type FacialHairCustomizationGlobalType = "EARRINGS" | "FEATURES" | "HAIR" | "HORNS" | "MARKINGS" | "NORMAL" | "PIERCINGS" | "TUSKS";
-    type FacialHairCustomizationType = "HORNS" | "NORMAL";
+  type FacialHairCustomizationGlobalType =
+    | 'EARRINGS'
+    | 'FEATURES'
+    | 'HAIR'
+    | 'HORNS'
+    | 'MARKINGS'
+    | 'NORMAL'
+    | 'PIERCINGS'
+    | 'TUSKS';
+  type FacialHairCustomizationType = 'HORNS' | 'NORMAL';
 }
 
 /**

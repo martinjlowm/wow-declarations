@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
 declare namespace WoWAPI {
-    type CursorInfoType = "item" | "spell" | "macro" | "mount" | "money" | "merchant" | "battlepet";
+  type CursorInfoType = 'item' | 'spell' | 'macro' | 'mount' | 'money' | 'merchant' | 'battlepet';
 }
 
 /**
@@ -80,7 +80,7 @@ declare function GetCursorInfo(): [WoWAPI.CursorInfoType, ...WoWAPI.Unknown[]];
  * - **itemLink**: ItemLink of the item on the cursor
  * @tupleReturn
  */
-declare function GetCursorInfo(): ["item", number, WoWAPI.ItemLink];
+declare function GetCursorInfo(): ['item', number, WoWAPI.ItemLink];
 
 /**
  * @returns **spell**
@@ -89,21 +89,21 @@ declare function GetCursorInfo(): ["item", number, WoWAPI.ItemLink];
  * - **spellId**: Spell ID of the spell on the cursor
  * @tupleReturn
  */
-declare function GetCursorInfo(): ["spell", number, string, number];
+declare function GetCursorInfo(): ['spell', number, string, number];
 
 /**
  * @returns **macro**
  * - **index**: The index of the macro on the cursor
  * @tupleReturn
  */
-declare function GetCursorInfo(): ["macro", number];
+declare function GetCursorInfo(): ['macro', number];
 
 /**
  * @returns **money**
  * - **amount**: The amount of money in copper
  * @tupleReturn
  */
-declare function GetCursorInfo(): ["money", number];
+declare function GetCursorInfo(): ['money', number];
 
 /**
  * @returns **mount**
@@ -111,21 +111,21 @@ declare function GetCursorInfo(): ["money", number];
  * - **C_MountJournal index**: index in the C_MountJournal (used by C_MountJournal API functions). These indexes varies with game locale
  * @tupleReturn
  */
-declare function GetCursorInfo(): ["mount", number, number];
+declare function GetCursorInfo(): ['mount', number, number];
 
 /**
  * @returns **merchant**
  * - **index**: The index of the merchant item
  * @tupleReturn
  */
-declare function GetCursorInfo(): ["merchant", number];
+declare function GetCursorInfo(): ['merchant', number];
 
 /**
  * @returns **battlepet**
  * - **petGUID**: GUID of a battle pet in your collection
  * @tupleReturn
  */
-declare function GetCursorInfo(): ["battlepet", WoWAPI.Guid];
+declare function GetCursorInfo(): ['battlepet', WoWAPI.Guid];
 
 /**
  * Returns the amount of copper held on the cursor

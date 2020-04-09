@@ -1,68 +1,71 @@
 /** @noSelfInFile */
 
-/// <reference path="global.d.ts" />
-/// <reference path="item.d.ts" />
+import '@/global';
+import '@/item';
 
 declare namespace WoWAPI {
+  type AUCTION_RUNTIME_12H = 1;
+  type AUCTION_RUNTIME_24H = 2;
+  type AUCTION_RUNTIME_48H = 3;
+  type AUCTION_RUNTIME = AUCTION_RUNTIME_12H | AUCTION_RUNTIME_24H | AUCTION_RUNTIME_48H;
 
-    type AUCTION_RUNTIME_12H = 1;
-    type AUCTION_RUNTIME_24H = 2;
-    type AUCTION_RUNTIME_48H = 3;
-    type AUCTION_RUNTIME = AUCTION_RUNTIME_12H | AUCTION_RUNTIME_24H | AUCTION_RUNTIME_48H;
+  type AUCTION_SALE_STATUS_UNSOLD = 0;
+  type AUCTION_SALE_STATUS_SOLD = 1;
+  type AUCTION_SALE_STATUS = AUCTION_SALE_STATUS_UNSOLD | AUCTION_SALE_STATUS_SOLD;
 
-    type AUCTION_SALE_STATUS_UNSOLD = 0;
-    type AUCTION_SALE_STATUS_SOLD = 1;
-    type AUCTION_SALE_STATUS = AUCTION_SALE_STATUS_UNSOLD | AUCTION_SALE_STATUS_SOLD;
+  /**
+   * short (less than 30 minutes)
+   */
+  type AUCTION_TIMELEFT_SHORT = 1;
 
-    /**
-     * short (less than 30 minutes)
-     */
-    type AUCTION_TIMELEFT_SHORT = 1;
+  /**
+   * medium (30 minutes - 2 hours)
+   */
+  type AUCTION_TIMELEFT_MEDIUM = 2;
 
-    /**
-     * medium (30 minutes - 2 hours)
-     */
-    type AUCTION_TIMELEFT_MEDIUM = 2;
+  /**
+   * long (2 - 12 hours)
+   */
+  type AUCTION_TIMELEFT_LONG = 3;
 
-    /**
-     * long (2 - 12 hours)
-     */
-    type AUCTION_TIMELEFT_LONG = 3;
+  /**
+   * very long (more than 12 hours)
+   */
+  type AUCTION_TIMELEFT_VERY_LONG = 4;
 
-    /**
-     * very long (more than 12 hours)
-     */
-    type AUCTION_TIMELEFT_VERY_LONG = 4;
+  /**
+   * all currently known time left values
+   */
+  type AUCTION_TIMELEFT =
+    | AUCTION_TIMELEFT_SHORT
+    | AUCTION_TIMELEFT_MEDIUM
+    | AUCTION_TIMELEFT_LONG
+    | AUCTION_TIMELEFT_VERY_LONG;
 
-    /**
-     * all currently known time left values
-     */
-    type AUCTION_TIMELEFT = AUCTION_TIMELEFT_SHORT | AUCTION_TIMELEFT_MEDIUM | AUCTION_TIMELEFT_LONG | AUCTION_TIMELEFT_VERY_LONG;
+  /**
+   * An item up for auction, the "Browse" tab in the dialog
+   */
+  type AUCTION_TYPE_LIST = 'list';
 
-    /**
-     * An item up for auction, the "Browse" tab in the dialog
-     */
-    type AUCTION_TYPE_LIST = "list";
+  /**
+   * An item the player has bid on, the "Bids" tab in the dialog
+   */
+  type AUCTION_TYPE_BIDDER = 'bidder';
 
-    /**
-     * An item the player has bid on, the "Bids" tab in the dialog
-     */
-    type AUCTION_TYPE_BIDDER = "bidder";
+  /**
+   * An item the player has up for auction, the "Auctions" tab in the dialog
+   */
+  type AUCTION_TYPE_OWNER = 'owner';
 
-    /**
-     * An item the player has up for auction, the "Auctions" tab in the dialog
-     */
-    type AUCTION_TYPE_OWNER = "owner";
+  /**
+   * the currently known auction types
+   */
+  type AUCTION_TYPE = AUCTION_TYPE_LIST | AUCTION_TYPE_BIDDER | AUCTION_TYPE_OWNER;
 
-    /**
-     * the currently known auction types
-     */
-    type AUCTION_TYPE = AUCTION_TYPE_LIST | AUCTION_TYPE_BIDDER | AUCTION_TYPE_OWNER;
-
-    /**
-     * The itemLink of one item in the current retrieved list of items from the Auction House
-     */
-    type AuctionLink = Hyperlink;
+  /**
+   * The itemLink of one item in the current retrieved list of items from the Auction House
+   */
+  type AuctionLink = Hyperlink;
 }
 
 /**
@@ -146,7 +149,29 @@ declare function GetAuctionItemBattlePetInfo(type: WoWAPI.AUCTION_TYPE, index: n
  * @tupleReturn
  */
 // tslint:disable-next-line max-line-length
-declare function GetAuctionItemInfo(type: WoWAPI.AUCTION_TYPE, index: number): [string, WoWAPI.TexturePath, number, WoWAPI.ITEM_QUALITY, boolean, number, string, number, number, number, number, boolean, string, string, string, WoWAPI.AUCTION_SALE_STATUS, number, WoWAPI.Unknown];
+declare function GetAuctionItemInfo(
+  type: WoWAPI.AUCTION_TYPE,
+  index: number,
+): [
+  string,
+  WoWAPI.TexturePath,
+  number,
+  WoWAPI.ITEM_QUALITY,
+  boolean,
+  number,
+  string,
+  number,
+  number,
+  number,
+  number,
+  boolean,
+  string,
+  string,
+  string,
+  WoWAPI.AUCTION_SALE_STATUS,
+  number,
+  WoWAPI.Unknown,
+];
 
 /**
  * Retrieves the itemLink of one item in the current retrieved list of items from the Auction House
@@ -183,7 +208,16 @@ declare function GetAuctionItemTimeLeft(type: WoWAPI.AUCTION_TYPE, index: number
  * @see https://wow.gamepedia.com/API_GetAuctionSellItemInfo
  * @tupleReturn
  */
-declare function GetAuctionSellItemInfo(): [string, WoWAPI.TexturePath, number, WoWAPI.ITEM_QUALITY, number, number, number, number];
+declare function GetAuctionSellItemInfo(): [
+  string,
+  WoWAPI.TexturePath,
+  number,
+  WoWAPI.ITEM_QUALITY,
+  number,
+  number,
+  number,
+  number,
+];
 
 /**
  * Unknown

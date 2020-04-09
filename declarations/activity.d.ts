@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-/// <reference path="global.d.ts" />
+import '@/global';
 
 /**
  * Accept the challenge to a duel.

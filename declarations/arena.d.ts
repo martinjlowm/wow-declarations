@@ -1,15 +1,15 @@
 /** @noSelfInFile */
 
-/// <reference path="global.d.ts" />
+import '@/global';
 
 declare namespace WoWAPI {
-    type ARENA_TEAM_GREEN = 0;
-    type ARENA_TEAM_GOLD = 1;
-    type ARENA_TEAM = ARENA_TEAM_GREEN | ARENA_TEAM_GOLD;
+  type ARENA_TEAM_GREEN = 0;
+  type ARENA_TEAM_GOLD = 1;
+  type ARENA_TEAM = ARENA_TEAM_GREEN | ARENA_TEAM_GOLD;
 
-    type ARENA_ID_2VS2 = 4;
-    type ARENA_ID_3VS3 = 5;
-    type ARENA_ID = ARENA_ID_2VS2 | ARENA_ID_3VS3;
+  type ARENA_ID_2VS2 = 4;
+  type ARENA_ID_3VS3 = 5;
+  type ARENA_ID = ARENA_ID_2VS2 | ARENA_ID_3VS3;
 }
 
 /**

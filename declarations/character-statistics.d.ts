@@ -28,7 +28,32 @@ declare const CR_VERSATILITY_DAMAGE_DONE = 29;
 declare const CR_VERSATILITY_DAMAGE_TAKEN = 31;
 
 declare namespace WoWAPI {
-    type CombatRatingIdentifier = 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 23 | 24 | 25 | 26 | 29 | 31;
+  type CombatRatingIdentifier =
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | 7
+    | 8
+    | 9
+    | 10
+    | 11
+    | 12
+    | 13
+    | 14
+    | 15
+    | 16
+    | 17
+    | 18
+    | 19
+    | 20
+    | 23
+    | 24
+    | 25
+    | 26
+    | 29
+    | 31;
 }
 
 /**

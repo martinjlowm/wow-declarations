@@ -1,8 +1,8 @@
 /** @noSelfInFile */
 
 declare namespace WoWAPI {
-    type CurrentBindingWhich = 1 | 2;
-    type BindingSetType = 0 | CurrentBindingWhich;
+  type CurrentBindingWhich = 1 | 2;
+  type BindingSetType = 0 | CurrentBindingWhich;
 }
 
 /**

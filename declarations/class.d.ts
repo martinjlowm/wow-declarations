@@ -1,6 +1,17 @@
 declare namespace WoWAPI {
-    type CLASSES = "WARRIOR" | "DEATHKNIGHT" | "PALADIN" | "MONK" | "PRIEST" | "SHAMAN" | "DRUID" |
-        "ROGUE" | "MAGE" | "WARLOCK" | "HUNTER" | "DEMONHUNTER";
+  type CLASSES =
+    | 'WARRIOR'
+    | 'DEATHKNIGHT'
+    | 'PALADIN'
+    | 'MONK'
+    | 'PRIEST'
+    | 'SHAMAN'
+    | 'DRUID'
+    | 'ROGUE'
+    | 'MAGE'
+    | 'WARLOCK'
+    | 'HUNTER'
+    | 'DEMONHUNTER';
 }
 
 /**

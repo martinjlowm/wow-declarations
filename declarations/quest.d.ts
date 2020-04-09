@@ -1,8 +1,8 @@
 /** @noSelfInFile */
 
 declare namespace WoWAPI {
-    type QuestType = "required" | "reward" | "choice";
-    type QuestState = "OFFER" | "COMPLETE";
+  type QuestType = 'required' | 'reward' | 'choice';
+  type QuestState = 'OFFER' | 'COMPLETE';
 }
 
 /**

@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-/// <reference path="global.d.ts" />
-/// <reference path="ui/ui.d.ts" />
+import '@/global';
+import '@/ui/ui';
 
 /**
  * Presses the specified FrameXML action button
@@ -269,7 +269,13 @@ declare function PlaceAction(slotId: ActionBarSlotId): void;
  * @see https://wow.gamepedia.com/API_SetActionBarToggles
  */
 // tslint:disable-next-line max-line-length
-declare function SetActionBarToggles(bottomLeftState: WoWAPI.Flag, bottomRightState: WoWAPI.Flag, sideRightState: WoWAPI.Flag, sideRight2State: WoWAPI.Flag, alwaysShow: WoWAPI.Flag): void;
+declare function SetActionBarToggles(
+  bottomLeftState: WoWAPI.Flag,
+  bottomRightState: WoWAPI.Flag,
+  sideRightState: WoWAPI.Flag,
+  sideRight2State: WoWAPI.Flag,
+  alwaysShow: WoWAPI.Flag,
+): void;
 
 /**
  * Begin "Right click" in the 3D game world.

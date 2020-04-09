@@ -1,72 +1,118 @@
 /** @noSelfInFile */
 
-/// <reference path="global.d.ts" />
-/// <reference path="item.d.ts" />
-/// <reference path="ui/ui.d.ts" />
-/// <reference path="unit.d.ts" />
+import '@/global';
+import '@/item';
+import '@/ui/ui';
+import '@/unit';
 
 declare namespace WoWAPI {
+  type CONTAINER_ID_BACKPACK = 0;
+  type CONTAINER_ID_BAG_1 = 1;
+  type CONTAINER_ID_BAG_2 = 2;
+  type CONTAINER_ID_BAG_3 = 3;
+  type CONTAINER_ID_BAG_4 = 4;
+  type CONTAINER_ID_BANK_GLOBAL = -1;
+  type CONTAINER_ID_BANK_BAG_1 = 5;
+  type CONTAINER_ID_BANK_BAG_2 = 6;
+  type CONTAINER_ID_BANK_BAG_3 = 7;
+  type CONTAINER_ID_BANK_BAG_4 = 8;
+  type CONTAINER_ID_BANK_BAG_5 = 9;
+  type CONTAINER_ID_BANK_BAG_6 = 10;
+  type CONTAINER_ID_BANK_BAG_7 = 11;
+  type CONTAINER_ID_REAGENTBANK = -3;
+  type CONTAINER_ID_BANK_BAG_WRAPPER = -4;
 
-    type CONTAINER_ID_BACKPACK = 0;
-    type CONTAINER_ID_BAG_1 = 1;
-    type CONTAINER_ID_BAG_2 = 2;
-    type CONTAINER_ID_BAG_3 = 3;
-    type CONTAINER_ID_BAG_4 = 4;
-    type CONTAINER_ID_BANK_GLOBAL = -1;
-    type CONTAINER_ID_BANK_BAG_1 = 5;
-    type CONTAINER_ID_BANK_BAG_2 = 6;
-    type CONTAINER_ID_BANK_BAG_3 = 7;
-    type CONTAINER_ID_BANK_BAG_4 = 8;
-    type CONTAINER_ID_BANK_BAG_5 = 9;
-    type CONTAINER_ID_BANK_BAG_6 = 10;
-    type CONTAINER_ID_BANK_BAG_7 = 11;
-    type CONTAINER_ID_REAGENTBANK = -3;
-    type CONTAINER_ID_BANK_BAG_WRAPPER = -4;
+  type CONTAINER_ID_BANK =
+    | CONTAINER_ID_BANK_GLOBAL
+    | CONTAINER_ID_BANK_BAG_1
+    | CONTAINER_ID_BANK_BAG_2
+    | CONTAINER_ID_BANK_BAG_3
+    | CONTAINER_ID_BANK_BAG_4
+    | CONTAINER_ID_BANK_BAG_5
+    | CONTAINER_ID_BANK_BAG_6
+    | CONTAINER_ID_BANK_BAG_7
+    | CONTAINER_ID_REAGENTBANK
+    | CONTAINER_ID_BANK_BAG_WRAPPER;
+  type CONTAINER_ID_BAG =
+    | CONTAINER_ID_BACKPACK
+    | CONTAINER_ID_BAG_1
+    | CONTAINER_ID_BAG_2
+    | CONTAINER_ID_BAG_3
+    | CONTAINER_ID_BAG_4;
+  type CONTAINER_ID = CONTAINER_ID_BAG | CONTAINER_ID_BANK;
 
-    type CONTAINER_ID_BANK = CONTAINER_ID_BANK_GLOBAL | CONTAINER_ID_BANK_BAG_1 | CONTAINER_ID_BANK_BAG_2 | CONTAINER_ID_BANK_BAG_3 |
-        CONTAINER_ID_BANK_BAG_4 | CONTAINER_ID_BANK_BAG_5 | CONTAINER_ID_BANK_BAG_6 | CONTAINER_ID_BANK_BAG_7 | CONTAINER_ID_REAGENTBANK |
-        CONTAINER_ID_BANK_BAG_WRAPPER;
-    type CONTAINER_ID_BAG = CONTAINER_ID_BACKPACK | CONTAINER_ID_BAG_1 | CONTAINER_ID_BAG_2 | CONTAINER_ID_BAG_3 |
-        CONTAINER_ID_BAG_4;
-    type CONTAINER_ID = CONTAINER_ID_BAG | CONTAINER_ID_BANK;
+  type BAG_TYPE_UNSPECIFIED = 0;
+  type BAG_TYPE_QUIVER = 1;
+  type BAG_TYPE_AMMO_POUCH = 2;
+  type BAG_TYPE_SOUL_BAG = 4;
+  type BAG_TYPE_LEATHERWORKING_BAG = 8;
+  type BAG_TYPE_INSCRIPTION_BAG = 16;
+  type BAG_TYPE_HERB_BAG = 32;
+  type BAG_TYPE_ENCHANTING_BAG = 64;
+  type BAG_TYPE_ENGINEERING_BAG = 128;
+  type BAG_TYPE_KEYRING = 256;
+  type BAG_TYPE_GEM_BAG = 512;
+  type BAG_TYPE_MINING = 1024;
+  type BAG_TYPE_UNKNOWN = 2048;
+  type BAG_TYPE_VANTY_PETS = 4096;
 
-    type BAG_TYPE_UNSPECIFIED = 0;
-    type BAG_TYPE_QUIVER = 1;
-    type BAG_TYPE_AMMO_POUCH = 2;
-    type BAG_TYPE_SOUL_BAG = 4;
-    type BAG_TYPE_LEATHERWORKING_BAG = 8;
-    type BAG_TYPE_INSCRIPTION_BAG = 16;
-    type BAG_TYPE_HERB_BAG = 32;
-    type BAG_TYPE_ENCHANTING_BAG = 64;
-    type BAG_TYPE_ENGINEERING_BAG = 128;
-    type BAG_TYPE_KEYRING = 256;
-    type BAG_TYPE_GEM_BAG = 512;
-    type BAG_TYPE_MINING = 1024;
-    type BAG_TYPE_UNKNOWN = 2048;
-    type BAG_TYPE_VANTY_PETS = 4096;
+  type INVENTORY_SLOT_CONTAINER_1 = 20;
+  type INVENTORY_SLOT_CONTAINER_2 = 21;
+  type INVENTORY_SLOT_CONTAINER_3 = 22;
+  type INVENTORY_SLOT_CONTAINER_4 = 23;
 
-    type INVENTORY_SLOT_CONTAINER_1 = 20;
-    type INVENTORY_SLOT_CONTAINER_2 = 21;
-    type INVENTORY_SLOT_CONTAINER_3 = 22;
-    type INVENTORY_SLOT_CONTAINER_4 = 23;
+  type INVENTORY_SLOT_CONTAINER =
+    | INVENTORY_SLOT_CONTAINER_1
+    | INVENTORY_SLOT_CONTAINER_2
+    | INVENTORY_SLOT_CONTAINER_3
+    | INVENTORY_SLOT_CONTAINER_4;
 
-    type INVENTORY_SLOT_CONTAINER = INVENTORY_SLOT_CONTAINER_1 | INVENTORY_SLOT_CONTAINER_2 |
-        INVENTORY_SLOT_CONTAINER_3 | INVENTORY_SLOT_CONTAINER_4;
+  type INVENTORY_SLOT_ID_CONTAINERS =
+    | INVENTORY_SLOT_CONTAINER_1
+    | INVENTORY_SLOT_CONTAINER_2
+    | INVENTORY_SLOT_CONTAINER_3
+    | INVENTORY_SLOT_CONTAINER_4;
+  type INVENTORY_SLOT_ID =
+    | INVSLOT_AMMO
+    | INVSLOT_HEAD
+    | INVSLOT_NECK
+    | INVSLOT_SHOULDER
+    | INVSLOT_BODY
+    | INVSLOT_CHEST
+    | INVSLOT_WAIST
+    | INVSLOT_LEGS
+    | INVSLOT_FEET
+    | INVSLOT_WRIST
+    | INVSLOT_HAND
+    | INVSLOT_FINGER1
+    | INVSLOT_FINGER2
+    | INVSLOT_TRINKET1
+    | INVSLOT_TRINKET2
+    | INVSLOT_BACK
+    | INVSLOT_MAINHAND
+    | INVSLOT_OFFHAND
+    | INVSLOT_RANGED
+    | INVSLOT_TABARD
+    | INVENTORY_SLOT_ID_CONTAINERS;
 
-    type INVENTORY_SLOT_ID_CONTAINERS = INVENTORY_SLOT_CONTAINER_1 | INVENTORY_SLOT_CONTAINER_2 |
-        INVENTORY_SLOT_CONTAINER_3 | INVENTORY_SLOT_CONTAINER_4;
-    type INVENTORY_SLOT_ID = INVSLOT_AMMO | INVSLOT_HEAD | INVSLOT_NECK | INVSLOT_SHOULDER | INVSLOT_BODY | INVSLOT_CHEST |
-        INVSLOT_WAIST | INVSLOT_LEGS | INVSLOT_FEET | INVSLOT_WRIST | INVSLOT_HAND | INVSLOT_FINGER1 | INVSLOT_FINGER2 |
-        INVSLOT_TRINKET1 | INVSLOT_TRINKET2 | INVSLOT_BACK | INVSLOT_MAINHAND | INVSLOT_OFFHAND | INVSLOT_RANGED | INVSLOT_TABARD |
-        INVENTORY_SLOT_ID_CONTAINERS;
-
-    /**
-     * all currently known bag types
-     */
-    type BAG_TYPE = BAG_TYPE_UNSPECIFIED | BAG_TYPE_QUIVER | BAG_TYPE_AMMO_POUCH | BAG_TYPE_SOUL_BAG | BAG_TYPE_LEATHERWORKING_BAG |
-        BAG_TYPE_INSCRIPTION_BAG | BAG_TYPE_HERB_BAG | BAG_TYPE_ENCHANTING_BAG | BAG_TYPE_ENGINEERING_BAG | BAG_TYPE_KEYRING | BAG_TYPE_GEM_BAG |
-        BAG_TYPE_MINING | BAG_TYPE_UNKNOWN | BAG_TYPE_VANTY_PETS;
-
+  /**
+   * all currently known bag types
+   */
+  type BAG_TYPE =
+    | BAG_TYPE_UNSPECIFIED
+    | BAG_TYPE_QUIVER
+    | BAG_TYPE_AMMO_POUCH
+    | BAG_TYPE_SOUL_BAG
+    | BAG_TYPE_LEATHERWORKING_BAG
+    | BAG_TYPE_INSCRIPTION_BAG
+    | BAG_TYPE_HERB_BAG
+    | BAG_TYPE_ENCHANTING_BAG
+    | BAG_TYPE_ENGINEERING_BAG
+    | BAG_TYPE_KEYRING
+    | BAG_TYPE_GEM_BAG
+    | BAG_TYPE_MINING
+    | BAG_TYPE_UNKNOWN
+    | BAG_TYPE_VANTY_PETS;
 }
 
 /**
@@ -132,7 +178,21 @@ declare function GetContainerItemID(bagId: WoWAPI.CONTAINER_ID, slot: number): n
  * @tupleReturn
  */
 // tslint:disable-next-line max-line-length
-declare function GetContainerItemInfo(bagId: WoWAPI.CONTAINER_ID, slot: number): [WoWAPI.TexturePath, number, boolean, WoWAPI.ITEM_QUALITY, boolean, boolean, WoWAPI.ItemLink, boolean, boolean, number];
+declare function GetContainerItemInfo(
+  bagId: WoWAPI.CONTAINER_ID,
+  slot: number,
+): [
+  WoWAPI.TexturePath,
+  number,
+  boolean,
+  WoWAPI.ITEM_QUALITY,
+  boolean,
+  boolean,
+  WoWAPI.ItemLink,
+  boolean,
+  boolean,
+  number,
+];
 
 /**
  * Returns a link of the object located in the specified slot of a specified bag
@@ -162,7 +222,10 @@ declare function GetContainerNumSlots(bagId: WoWAPI.CONTAINER_ID): number;
  * @see https://wow.gamepedia.com/API_GetContainerItemQuestInfo
  * @tupleReturn
  */
-declare function GetContainerItemQuestInfo(bagId: WoWAPI.CONTAINER_ID, slot: number): [WoWAPI.Flag, number | null, WoWAPI.Flag];
+declare function GetContainerItemQuestInfo(
+  bagId: WoWAPI.CONTAINER_ID,
+  slot: number,
+): [WoWAPI.Flag, number | null, WoWAPI.Flag];
 
 /**
  * Returns the total number of free slots in the bag an the type of items that can go into it specified by the index
@@ -266,4 +329,9 @@ declare function ToggleBag(bagId: WoWAPI.CONTAINER_ID): void;
  * @see https://wow.gamepedia.com/API_UseContainerItem
  * @protected PROTECTED (situational)
  */
-declare function UseContainerItem(bagId: WoWAPI.CONTAINER_ID, slot: number, target?: WoWAPI.UnitId, reagentBankAccessible?: boolean): void;
+declare function UseContainerItem(
+  bagId: WoWAPI.CONTAINER_ID,
+  slot: number,
+  target?: WoWAPI.UnitId,
+  reagentBankAccessible?: boolean,
+): void;
