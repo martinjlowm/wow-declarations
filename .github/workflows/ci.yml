@@ -27,6 +27,7 @@ jobs:
 
       - name: 'Install Dependencies'
         run: |
+          npm install -g yarn@berry
           yarn --version
           yarn policies set-version berry
           yarn
