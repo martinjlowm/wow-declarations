@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-import '@/global';
-import '@/ui/ui';
+/// <reference path='./global.d.ts' />
+/// <reference path='./ui/ui.d.ts' />
 
 declare namespace WoWAPI {
   type ARCHAELOLOGY_RARITY_COMMON = 0;

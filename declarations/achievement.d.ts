@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-import '@/global';
-import '@/unit';
+/// <reference path='./global.d.ts' />
+/// <reference path='./unit/index.d.ts' />
 
 declare namespace WoWAPI {
   /**

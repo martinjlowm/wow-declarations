@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-/// <reference path='./unit.d.ts' />
+/// <reference path='./unit/index.d.ts' />
 /// <reference path='./global.d.ts' />
 /// <reference path='./item.d.ts' />
 /// <reference path='./ui/ui.d.ts' />

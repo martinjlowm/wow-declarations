@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-import '@/global';
+/// <reference path='./global.d.ts' />
 
 declare namespace WoWAPI {
   type ARENA_TEAM_GREEN = 0;
