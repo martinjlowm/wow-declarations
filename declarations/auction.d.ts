@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-import '@/global';
-import '@/item';
+/// <reference path='./global' />
+/// <reference path='./item' />
 
 declare namespace WoWAPI {
   type AUCTION_RUNTIME_12H = 1;

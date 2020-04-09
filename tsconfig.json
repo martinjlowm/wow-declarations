@@ -4,15 +4,9 @@
     "noImplicitAny": true,
     "removeComments": false,
     "preserveConstEnums": true,
+    "baseUrl": ".",
     "target": "es2019",
     "moduleResolution": "node",
-    "plugins": [
-      { "transform": "@zerollup/ts-transform-paths" }
-    ],
-    "paths": {
-      "@/*": ["src/*"],
-      "$/*": ["test/*"]
-    },
     "types": ["lua-types/jit"]
   },
   "include": [

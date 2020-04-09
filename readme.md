@@ -23,11 +23,7 @@ Please add the wow-declarations path to your `tsconfig.json` compiler options li
 ```js
 {
     "compilerOptions": {
-        // ...
-        "typeRoots": [
-            "./node_modules/@types",
-            "./node_modules/@wartoshika/wow-classic-declarations"
-        ]
+        "types": ["lua-types/jit", "@wartoshika/wow-declarations"]
     }
 }
 ```

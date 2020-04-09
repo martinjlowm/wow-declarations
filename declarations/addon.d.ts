@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-import '@/global';
+/// <reference path='./global' />
 
 declare namespace WoWAPI {
   /**

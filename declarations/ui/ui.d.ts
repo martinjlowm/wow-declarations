@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-import '@/global';
+/// <reference path='../global' />
 
 declare namespace WoWAPI {
   type HorizontalAlign = 'LEFT' | 'CENTER' | 'RIGHT';
@@ -907,7 +907,6 @@ declare namespace WoWAPI {
 /**
  * global lua namespace
  */
-declare const _G: { [prop: string]: any };
 declare const InterfaceOptionsFramePanelContainer: WoWAPI.Region;
 declare const UIParent: WoWAPI.Frame;
 

@@ -1,9 +1,9 @@
 /** @noSelfInFile */
 
-import '@/global';
-import '@/item';
-import '@/ui/ui';
-import '@/unit';
+/// <reference path='./unit' />
+/// <reference path='./global' />
+/// <reference path='./item' />
+/// <reference path='./ui/ui' />
 
 declare namespace WoWAPI {
   type CONTAINER_ID_BACKPACK = 0;

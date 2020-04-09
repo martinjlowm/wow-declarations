@@ -1,5 +1,9 @@
-import '@/ui/ui';
-import '@/auction';
+/// <reference path='../auction' />
+/// <reference path='../container' />
+/// <reference path='../buff' />
+/// <reference path='../global' />
+/// <reference path='../item' />
+/// <reference path='./ui' />
 
 declare namespace WoWAPI {
   interface GameTooltip {
