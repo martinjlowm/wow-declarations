@@ -1,66 +1,67 @@
 declare namespace WoWAPI {}
 
 // global and constants
-import '@/constants';
-import '@/global';
+import './constants';
+import './global';
 
 // A
-import '@/account';
-import '@/achievement';
-import '@/action';
-import '@/activity';
-import '@/addon';
-import '@/archaeology';
-import '@/arena';
+import './account';
+import './achievement';
+import './action';
+import './activity';
+import './addon';
+import './archaeology';
+import './arena';
 
 // B
-import '@/bank';
-import '@/barber';
-import '@/battlefield';
-import '@/binding';
-import '@/black-market';
-import '@/buff';
+import './bank';
+import './barber';
+import './battlefield';
+import './binding';
+import './black-market';
+import './buff';
 
 // C
-import '@/calendar';
-import '@/camera';
-import '@/channel';
-import '@/character';
-import '@/character-statistics';
-import '@/chat-info';
-import '@/chat-window';
-import '@/class';
-import '@/communication';
-import '@/companion';
-import '@/container';
-import '@/currency';
-import '@/cursor';
+import './calendar';
+import './camera';
+import './channel';
+import './character';
+import './character-statistics';
+import './chat-info';
+import './chat-window';
+import './class';
+import './communication';
+import './companion';
+import './container';
+import './currency';
+import './cursor';
 
 // D
-import '@/debug';
+import './debug';
 
 // E
-import '@/event';
+import './event';
 
 // G
-import '@/gossip';
-import '@/groups';
+import './gossip';
+import './groups';
 
 // I
-import '@/inventory';
+import './inventory';
 
 // Q
-import '@/quest';
+import './quest';
 
 // S
-import '@/security';
-import '@/spell';
-import '@/system';
-import '@/ui/tooltip';
+import './security';
+import './spell';
+import './system';
+import './ui/tooltip';
 
 // U
-import '@/ui/ui';
-import '@/unit';
+import './ui/ui';
+import './ui/frames';
+import './unit';
 
 export = WoWAPI;
 export as namespace WoWAPI;
