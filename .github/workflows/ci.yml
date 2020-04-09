@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+    paths:
+      - '.eslintrc.js'
+      - '.github/workflows/ci.yml'
+      - 'yarn.lock'
+      - 'tsconfig.json'
+      - 'declarations/**'
+      - '*.d.ts'
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js 12.x LTS
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: https://npm.pkg.github.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 'Install Dependencies'
+        run: |
+          yarn
+
+      - name: 'Lint'
+        run: |
+          yarn eslint
+
+      - name: 'Typecheck'
+        run: |
+          yarn tsc
