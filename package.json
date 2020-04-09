@@ -16,8 +16,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "git push github --follow-tags",
-    "eslint": "eslint declarations/\\*\\*/\\*.ts",
-    "eslint:fix": "eslint --fix declarations/\\*\\*/\\*.ts"
+    "eslint": "eslint \\*.d.ts declarations/\\*\\*/\\*.ts",
+    "eslint:fix": "eslint --fix \\*.d.ts declarations/\\*\\*/\\*.ts"
   },
   "types": "declarations/index.d.ts",
   "version": "1.13.3-release.1",

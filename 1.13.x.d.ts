@@ -1,3 +1,5 @@
+declare namespace WoWAPI {}
+
 // global and constants
 import '@/constants';
 import '@/global';

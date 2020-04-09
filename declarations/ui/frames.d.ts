@@ -1,4 +1,4 @@
-import '@/ui/ui';
+/// <reference path='./ui.d.ts' />
 
 declare let ChatFrame1: WoWAPI.Frame;
 declare let ChatFrame2: WoWAPI.Frame;
