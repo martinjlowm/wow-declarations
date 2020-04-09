@@ -55,6 +55,7 @@ import './declarations/ui/tooltip';
 
 // T
 import './declarations/talent';
+import './declarations/specialization';
 
 // U
 import './declarations/ui/ui';

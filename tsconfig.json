@@ -12,6 +12,8 @@
   },
   "include": [
     "1.13.x.d.ts",
+    "2.5.x.d.ts",
+    "3.4.x.d.ts",
     "declarations/**/*.d.ts"
   ]
 }
