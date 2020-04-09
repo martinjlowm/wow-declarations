@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-/// <reference path='./auction' />
+/// <reference path='./auction.d.ts' />
 
 declare namespace WoWAPI {
   type ITEM_QUALITY_GENERIC = -1;

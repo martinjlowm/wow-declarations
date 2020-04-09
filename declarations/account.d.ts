@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-import '@/global';
+/// <reference path='./global.d.ts' />
 
 /**
  * Returns the highest expansion id the current account has been flagged for.

@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-/// <reference path='../global' />
+/// <reference path='../global.d.ts' />
 
 declare namespace WoWAPI {
   type HorizontalAlign = 'LEFT' | 'CENTER' | 'RIGHT';

@@ -1,9 +1,9 @@
-/// <reference path='../auction' />
-/// <reference path='../container' />
-/// <reference path='../buff' />
-/// <reference path='../global' />
-/// <reference path='../item' />
-/// <reference path='./ui' />
+/// <reference path='../auction.d.ts' />
+/// <reference path='../container.d.ts' />
+/// <reference path='../buff.d.ts' />
+/// <reference path='../global.d.ts' />
+/// <reference path='../item.d.ts' />
+/// <reference path='./ui.d.ts' />
 
 declare namespace WoWAPI {
   interface GameTooltip {

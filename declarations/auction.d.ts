@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
-/// <reference path='./global' />
-/// <reference path='./item' />
+/// <reference path='./global.d.ts' />
+/// <reference path='./item.d.ts' />
 
 declare namespace WoWAPI {
   type AUCTION_RUNTIME_12H = 1;

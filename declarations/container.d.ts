@@ -1,9 +1,9 @@
 /** @noSelfInFile */
 
-/// <reference path='./unit' />
-/// <reference path='./global' />
-/// <reference path='./item' />
-/// <reference path='./ui/ui' />
+/// <reference path='./unit.d.ts' />
+/// <reference path='./global.d.ts' />
+/// <reference path='./item.d.ts' />
+/// <reference path='./ui/ui.d.ts' />
 
 declare namespace WoWAPI {
   type CONTAINER_ID_BACKPACK = 0;
