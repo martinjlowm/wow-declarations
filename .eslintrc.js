@@ -21,6 +21,7 @@ module.exports = {
     '@typescript-eslint/class-name-casing': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off',
     'import/no-unresolved': 'off',
     'prettier/prettier': ['error'],
     'progress/activate': 'warn',
