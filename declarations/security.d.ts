@@ -56,3 +56,64 @@ declare function hooksecurefunc(table?: object, functionName?: string, handler?:
  * @see https://wow.gamepedia.com/API_InCombatLockdown
  */
 declare function InCombatLockdown(): boolean;
+
+/**
+ * The generic state driver for any frame -- you can register to be notified
+ * when an arbitrary macro conditional evaluates to a different values. Updates
+ * are delivered via attributes; handle OnAttributeChanged or use
+ * SecureHandlerStateTemplate with a corresponding snippet to respond from a
+ * restricted environment. Repeated calls with the same frame and stateid will
+ * overwrite previous ones.
+ *
+ * @param frame Frame-derived widget - notifications will be delivered by
+ *   setting attributes on this frame.
+ * @param stateId String - an arbitrary identifier string for this conditional
+ *   (coerced to lower case), or "visibility". The latter is a special state --
+ *   rather than delivering an update through attribute changes, it shows or
+ *   hides the frame when the conditional evaluates to "show" or "hide"
+ *   respectively.
+ * @param conditional String - macro conditional parsable by
+ *   SecureCmdOptionParse. The value this conditional evaluates to will be set
+ *   as the value of the "state-stateid" attribute on the frame.
+ * @see https://wow.gamepedia.com/SecureStateDriver
+ */
+declare function RegisterStateDriver(frame: WoWAPI.Frame, stateId: string, conditional: string): void;
+
+/**
+ * Cancels a previous generic state driver for the given frame and stateid.
+ *
+ * @param frame Frame-derived widget - notifications will be delivered by
+ *   setting attributes on this frame.
+ * @param stateId String - an arbitrary identifier string for this conditional
+ *   (coerced to lower case), or "visibility". The latter is a special state --
+ *   rather than delivering an update through attribute changes, it shows or
+ *   hides the frame when the conditional evaluates to "show" or "hide"
+ *   respectively.
+ * @see https://wow.gamepedia.com/SecureStateDriver
+ */
+declare function UnregisterStateDriver(frame: WoWAPI.Frame, state: string, conditional: string): void;
+
+/**
+ * Assists in controlling unit frames -- can either show/hide the frame based on
+ * whether its unit exists; or deliver that information via a state attribute.
+ *
+ * @param frame Frame-derived widget - The frame to be shown/hidden/notified
+ *   when its unit exists / does not exist.
+ * @param asState Boolean - if true, the "state-unitexists" attribute will be
+ *   set to a boolean value denoting whether the unit exists; if false, the
+ *   frame will be shown if its unit exists, and hidden if it does not.
+ * @see https://wow.gamepedia.com/SecureStateDriver
+ */
+declare function RegisterUnitWatch(frame: WoWAPI.Frame, asState: boolean): void;
+
+/**
+ * Cancels a previous generic state driver for the given frame and stateid.
+ *
+ * @param frame Frame-derived widget - The frame to be shown/hidden/notified
+ *   when its unit exists / does not exist.
+ * @param asState Boolean - if true, the "state-unitexists" attribute will be
+ *   set to a boolean value denoting whether the unit exists; if false, the
+ *   frame will be shown if its unit exists, and hidden if it does not.
+ * @see https://wow.gamepedia.com/SecureStateDriver
+ */
+declare function UnregisterUnitWatch(frame: WoWAPI.Frame, asState: boolean): void;
