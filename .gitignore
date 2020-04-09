@@ -1,5 +1,7 @@
 *.tgz
 .log/
-.pnp.js
-.yarn/
+.pnp.*
+.yarn/build-state.yml
+.yarn/cache
+.yarn/unplugged
 node_modules/
