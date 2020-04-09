@@ -1,17 +1,22 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "removeComments": false,
-        "preserveConstEnums": true,
-        "target": "es5",
-        "moduleResolution": "node",
-        "typeRoots": [
-            "./node_modules/@types",
-            "./node_modules/@wartoshika/lua-declarations"
-        ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "target": "es2019",
+    "moduleResolution": "node",
+    "plugins": [
+      { "transform": "@zerollup/ts-transform-paths" }
+    ],
+    "paths": {
+      "@/*": ["src/*"],
+      "$/*": ["test/*"]
     },
-    "include": [
-        "declarations/**/*.d.ts"
-    ]
+    "types": ["lua-types/jit"]
+  },
+  "include": [
+    "1.13.x.d.ts",
+    "declarations/**/*.d.ts"
+  ]
 }

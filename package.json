@@ -16,13 +16,30 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "git push github --follow-tags",
-    "lint": "tslint -c tslint.json declarations/**/*.d.ts",
-    "lint:fix": "tslint -c tslint.json --fix declarations/**/*.d.ts"
+    "eslint": "eslint \\*.d.ts declarations/\\*\\*/\\*.ts",
+    "eslint:fix": "eslint --fix \\*.d.ts declarations/\\*\\*/\\*.ts"
   },
   "types": "declarations/index.d.ts",
   "version": "1.13.3-release.1",
   "devDependencies": {
-    "tslint": "^5.20.0",
-    "typescript": "^3.6.3"
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "@yarnpkg/pnpify": "^2.0.0-rc.20",
+    "@zerollup/ts-transform-paths": "^1.7.17",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-import-resolver-node": "^0.3.3",
+    "eslint-plugin-import": "2.20.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-progress": "github:taskworld/eslint-plugin-progress",
+    "husky": "^4.2.3",
+    "lua-types": "^2.7.0",
+    "prettier": "^2.0.2",
+    "tstl": "^2.4.2",
+    "typescript": "^3.8.3",
+    "typescript-language-server": "^0.4.0",
+    "typescript-to-lua": "^0.32.0",
+    "vscode-jsonrpc": "^5.0.1",
+    "vscode-languageserver-protocol": "^3.15.3"
   }
 }
