@@ -2,7 +2,7 @@
   . (
      ;; Enable typescript-language-server and eslint LSP clients.
      (lsp-enabled-clients . (ts-ls eslint))
-     (eval . (let ((project-directory (car (dir-locals-find-file "."))))
+     (eval . (let ((project-directory (car (dir-locals-find-file default-directory))))
                (set (make-local-variable 'flycheck-javascript-eslint-executable)
                     (concat project-directory ".vscode/pnpify/eslint/bin/eslint.js"))
 
