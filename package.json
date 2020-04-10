@@ -1,18 +1,12 @@
 {
-  "author": {
-    "name": "wartoshika",
-    "email": "dev@qhun.de"
-  },
-  "description": "Typescript declarations for the current live World of Warcraft LUA API",
+  "name": "wow-declarations",
+  "description": "TypeScript declarations for the World of Warcraft LUA API",
   "keywords": [
     "wow",
-    "lua",
-    "wartoshika",
-    "qhun"
+    "lua"
   ],
   "license": "MIT",
   "main": "declarations/index.d.ts",
-  "name": "@wartoshika/wow-declarations",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "git push github --follow-tags",
@@ -20,7 +14,6 @@
     "eslint:fix": "eslint --fix \\*.d.ts declarations/\\*\\*/\\*.ts"
   },
   "types": "declarations/index.d.ts",
-  "version": "1.13.3-release.1",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
@@ -31,9 +24,11 @@
     "eslint-plugin-import": "2.20.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-progress": "github:taskworld/eslint-plugin-progress",
+    "faker": "^4.1.0",
     "husky": "^4.2.3",
     "lua-types": "^2.7.0",
     "prettier": "^2.0.2",
+    "sinon": "^9.0.2",
     "tstl": "^2.4.2",
     "typescript": "^3.8.3",
     "typescript-language-server": "^0.4.0",
