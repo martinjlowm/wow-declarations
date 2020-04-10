@@ -70,7 +70,7 @@ declare function GetSpecializationInfo(
   specIndex: number,
   isInspect?: boolean,
   isPet?: boolean,
-  genderCode?: WoWAPI.UnitSexOutput,
+  genderCode?: WoWAPI.UnitSex,
 ): WoWAPI.GetSpecializationOutput;
 declare function GetNumSpecializations(isInspect?: boolean, isPet?: boolean): number;
 declare function GetSpecialization(isInspect?: boolean, isPet?: boolean, specGroup?: number): number;

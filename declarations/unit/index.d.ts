@@ -92,6 +92,21 @@ declare namespace WoWAPI {
   type UnitRoleType = 'TANK' | 'DAMAGER' | 'HEALER';
 
   type Guid = string;
+
+  // TODO: Declare these as valid unions, they are nominal types for now.
+  type LocalizedClass = string;
+  type LocalizedFaction = string;
+  type LocalizedRace = string;
+
+  type EnglishFaction = 'Alliance' | 'Horde';
+
+  type ClassIndex = number;
+  type RaceIndex = number;
+
+  type UnitSex =
+    | 1 // Unknown
+    | 2 // Make
+    | 3; // Female
 }
 
 /**
@@ -138,7 +153,7 @@ declare function UnitIsPlayer(unitId: WoWAPI.UnitId): boolean;
  * @return The unit level. Returns -1 for bosses, or players more than 10 levels above the player
  * @see https://wow.gamepedia.com/API_UnitEffectiveLevel
  */
-declare function UnitLevel(unitId: WoWAPI.UnitId): number;
+declare function UnitLevel(unitId: WoWAPI.UnitId): WoWAPI.UnitLevels;
 
 /**
  * Get the name of the faction (Horde/Alliance) a unit belongs to
@@ -146,7 +161,7 @@ declare function UnitLevel(unitId: WoWAPI.UnitId): number;
  * @see https://wow.gamepedia.com/API_UnitFactionGroup
  * @tupleReturn
  */
-declare function UnitFactionGroup(unitId: WoWAPI.UnitId): [string, string];
+declare function UnitFactionGroup(unitId: WoWAPI.UnitId): [WoWAPI.EnglishFaction, WoWAPI.LocalizedFaction];
 
 /**
  * Returns the class of the specified unit
@@ -154,7 +169,7 @@ declare function UnitFactionGroup(unitId: WoWAPI.UnitId): [string, string];
  * @see https://wow.gamepedia.com/API_UnitClass
  * @tupleReturn
  */
-declare function UnitClass(unitId: WoWAPI.UnitId): [string, string, number];
+declare function UnitClass(unitId: WoWAPI.UnitId): [WoWAPI.LocalizedClass, WoWAPI.EnglishClass, WoWAPI.ClassIndex];
 
 /**
  * Returns the current health of the specified unit
@@ -176,3 +191,10 @@ declare function UnitHealthMax(unitId: WoWAPI.UnitId): number;
  * @see https://wow.gamepedia.com/API_UnitInParty
  */
 declare function UnitInParty(unitId: WoWAPI.UnitId): boolean;
+
+/** @tupleReturn */
+declare function UnitRace(unitId: WoWAPI.UnitId): [WoWAPI.LocalizedRace, WoWAPI.EnglishRace, WoWAPI.RaceIndex];
+
+declare function UnitXP(unitId: WoWAPI.UnitId): number;
+declare function UnitXPMax(unitId: WoWAPI.UnitId): number;
+declare function GetXPExhaustion(): number | null;

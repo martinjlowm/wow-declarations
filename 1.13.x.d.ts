@@ -58,7 +58,7 @@ import './declarations/talent';
 // U
 import './declarations/ui/ui';
 import './declarations/ui/frames';
-import './declarations/unit';
+import './declarations/unit/1.13.x';
 
 export = WoWAPI;
 export as namespace WoWAPI;
