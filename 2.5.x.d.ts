@@ -1,8 +1,7 @@
-declare namespace WoWAPI {}
-
 // global and constants
 import './declarations/constants';
 import './declarations/global';
+import './declarations/lua';
 
 // A
 import './declarations/account';

@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 
-import '@/global';
+/// <reference path='./global.d.ts' />
 
 /**
  * Determines whether the current execution path is secure
