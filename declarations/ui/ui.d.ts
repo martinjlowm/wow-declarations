@@ -539,6 +539,14 @@ declare namespace WoWAPI {
     };
   }
 
+  interface SecureHandlerBaseTemplate {
+    Execute(snippet: string): void;
+    SetFrameRef(label: string, frame: Frame): void;
+    WrapScript(frame: Frame, script: string, preBody: string, postBody?: string): void;
+    /** @tupleReturn */
+    UnwrapScript(frame: Frame, script: string): [void, string, string];
+  }
+
   /**
    * The main wow frame object
    */
@@ -1004,6 +1012,13 @@ declare function CreateFrame(
   inheritsFrame?: string,
   id?: number,
 ): WoWAPI.UIObject;
+declare function CreateFrame<T extends 'SecureHandlerStateTemplate'>(
+  frameType: 'Frame',
+  frameName?: string,
+  parentFrame?: WoWAPI.UIObject,
+  inheritsFrame?: T,
+  id?: number,
+): WoWAPI.Frame & WoWAPI.SecureHandlerBaseTemplate;
 declare function CreateFrame(
   frameType: 'Frame',
   frameName?: string,
