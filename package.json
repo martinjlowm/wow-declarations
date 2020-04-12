@@ -8,13 +8,16 @@
   "license": "MIT",
   "main": "declarations/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postversion": "git push github --follow-tags",
     "eslint": "eslint \\*.d.ts declarations/\\*\\*/\\*.ts",
-    "eslint:fix": "eslint --fix \\*.d.ts declarations/\\*\\*/\\*.ts"
+    "eslint:fix": "eslint --fix \\*.d.ts declarations/\\*\\*/\\*.ts",
+    "test:generate-mocks": "ttsc -p test/tsconfig.json",
+    "test": "jest"
   },
   "types": "declarations/index.d.ts",
   "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.11.1",
+    "@types/sinon": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "@yarnpkg/pnpify": "^2.0.0-rc.20",
@@ -26,10 +29,15 @@
     "eslint-plugin-progress": "github:taskworld/eslint-plugin-progress",
     "faker": "^4.1.0",
     "husky": "^4.2.3",
+    "jest": "^25.3.0",
+    "jest-ts-auto-mock": "^1.0.11",
     "lua-types": "^2.7.0",
     "prettier": "^2.0.2",
     "sinon": "^9.0.2",
+    "ts-auto-mock": "^1.5.7",
+    "ts-jest": "^25.3.1",
     "tstl": "^2.4.2",
+    "ttypescript": "^1.5.10",
     "typescript": "^3.8.3",
     "typescript-language-server": "^0.4.0",
     "typescript-to-lua": "^0.32.0",
@@ -39,6 +47,28 @@
   "husky": {
     "hooks": {
       "pre-commit": "yarn eslint:fix"
+    }
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>test/config.ts"
+    ],
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": ".+\\.spec\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "globals": {
+      "ts-jest": {
+        "packageJson": "./package.json",
+        "compiler": "ttypescript",
+        "tsConfig": "test/tsconfig.json"
+      }
     }
   }
 }

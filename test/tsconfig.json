@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2019"],
+    "outDir": "dist",
+    "baseUrl": ".",
+    "target": "es2019",
+    "moduleResolution": "node",
+    "plugins": [
+      {
+        "transform": "ts-auto-mock/transformer",
+        "cacheBetweenTests": false
+      }
+    ],
+    "types": ["jest", "lua-types/jit", "../1.13.x"]
+  }
+}
