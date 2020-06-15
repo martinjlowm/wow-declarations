@@ -10,8 +10,10 @@
   "scripts": {
     "eslint": "eslint \\*.d.ts declarations/\\*\\*/\\*.ts",
     "eslint:fix": "eslint --fix \\*.d.ts declarations/\\*\\*/\\*.ts",
-    "test:generate-mocks": "ttsc -p test/tsconfig.json",
-    "test": "jest"
+    "mocks:typescriptify": "cat mocks/index.js | sed -E 's/^globalThis.([^ ]+) = createMock\\\\(\\\\);$/globalThis.\\\\1 = createMock<typeof \\\\1>\\\\(\\\\);/g' > mocks/index.intermediate.ts",
+    "mocks:generate": "NODE_OPTIONS=\"$NODE_OPTIONS -r ts-node/register/transpile-only\" ttsc -p mocks/tsconfig.first.json; yarn mocks:typescriptify; ttsc -p mocks/tsconfig.second.json",
+    "test": "TS_NODE_PROJECT=\"test/tsconfig.json\" NODE_OPTIONS=\"$NODE_OPTIONS -r ts-node/register/transpile-only -r ./patch/jest ${INSPECT:-''}\" jest ${RUN_IN_BAND:-''} -c jest.config.ts",
+    "test:debug": "INSPECT=\"--inspect-brk\" RUN_IN_BAND=\"-i\" yarn test"
   },
   "types": "declarations/index.d.ts",
   "devDependencies": {
@@ -20,7 +22,6 @@
     "@types/sinon": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
-    "@yarnpkg/pnpify": "^2.0.0-rc.20",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-import-resolver-node": "^0.3.3",
@@ -29,13 +30,15 @@
     "eslint-plugin-progress": "github:taskworld/eslint-plugin-progress",
     "faker": "^4.1.0",
     "husky": "^4.2.3",
-    "jest": "^25.3.0",
+    "jest": "^26",
+    "jest-config": "^26.0.1",
     "jest-ts-auto-mock": "^1.0.11",
     "lua-types": "^2.7.0",
     "prettier": "^2.0.2",
     "sinon": "^9.0.2",
-    "ts-auto-mock": "^1.5.7",
-    "ts-jest": "^25.3.1",
+    "ts-auto-mock": "portal:../ts-auto-mock/dist",
+    "ts-jest": "^26.1.0",
+    "ts-node": "^8.10.2",
     "tstl": "^2.4.2",
     "ttypescript": "^1.5.10",
     "typescript": "^3.8.3",
@@ -46,29 +49,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn eslint:fix"
     }
   },
-  "jest": {
-    "setupFiles": [
-      "<rootDir>test/config.ts"
-    ],
-    "transform": {
-      ".(ts|tsx)": "ts-jest"
+  "dependenciesMeta": {
+    "ttypescript": {
+      "unplugged": true
     },
-    "testRegex": ".+\\.spec\\.tsx?$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json"
-    ],
-    "globals": {
-      "ts-jest": {
-        "packageJson": "./package.json",
-        "compiler": "ttypescript",
-        "tsConfig": "test/tsconfig.json"
-      }
+    "typescript": {
+      "unplugged": true
     }
   }
 }
