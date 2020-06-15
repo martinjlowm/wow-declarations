@@ -9,7 +9,7 @@
                ;; (lsp-dependency 'typescript-language-server
                ;;                 `(:system ,(concat project-directory ".vscode/pnpify/typescript-language-server/lib/cli.js")))
                (lsp-dependency 'typescript-language-server
-                               `(:system ,(concat project-directory ".pnp/typescript-language-server")))
+                               `(:system ,(concat project-directory ".vscode/pnpify/typescript-language-server/lib/cli.js")))
                (lsp-dependency 'typescript
                                `(:system ,(concat project-directory ".vscode/pnpify/typescript/bin/tsserver")))
 
