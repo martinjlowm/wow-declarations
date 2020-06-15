@@ -5,3 +5,6 @@
 .yarn/cache
 .yarn/unplugged
 node_modules/
+
+mocks/*
+!mocks/index.ts
