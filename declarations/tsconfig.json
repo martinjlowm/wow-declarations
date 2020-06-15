@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "target": "es2019",
+    "types": ["lua-types/jit"]
+  },
+  "include": [
+    "1.13.x.d.ts",
+    "2.5.x.d.ts",
+    "3.4.x.d.ts",
+    "declarations/**/*.d.ts"
+  ]
+}
