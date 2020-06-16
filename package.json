@@ -8,8 +8,8 @@
   "license": "MIT",
   "main": "declarations/index.d.ts",
   "scripts": {
-    "eslint": "eslint \\*.d.ts declarations/\\*\\*/\\*.ts",
-    "eslint:fix": "eslint --fix \\*.d.ts declarations/\\*\\*/\\*.ts",
+    "eslint": "eslint *.d.ts declarations/**/*.ts",
+    "eslint:fix": "eslint --fix *.d.ts declarations/**/*.ts",
     "mocks:typescriptify": "cat mocks/index.js | sed -E 's/^globalThis.([^ ]+) = createMock\\\\(\\\\);$/globalThis.\\\\1 = createMock<typeof \\\\1>\\\\(\\\\);/g' > mocks/index.intermediate.ts",
     "mocks:generate": "NODE_OPTIONS=\"$NODE_OPTIONS -r ts-node/register/transpile-only\" ttsc -p mocks/tsconfig.first.json; yarn mocks:typescriptify; ttsc -p mocks/tsconfig.second.json",
     "test": "TS_NODE_PROJECT=\"test/tsconfig.json\" NODE_OPTIONS=\"$NODE_OPTIONS -r ts-node/register/transpile-only -r ./patch/jest ${INSPECT:-''}\" jest ${RUN_IN_BAND:-''} -c jest.config.ts",
@@ -48,7 +48,9 @@
     "vscode-languageserver-protocol": "^3.15.3"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "yarn eslint:fix"
+    }
   },
   "dependenciesMeta": {
     "ttypescript": {
