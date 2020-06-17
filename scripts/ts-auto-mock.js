@@ -1,5 +1,4 @@
 const pathToRepo = path.join(execEnv.tempDir, 'repo');
-const pathToArchive = path.join(execEnv.tempDir, 'archive.tgz');
 const pathToDistribution = path.join(pathToRepo, 'dist');
 
 child_process.execFileSync('git', ['clone', 'https://github.com/martinjlowm/ts-auto-mock.git', pathToRepo]);

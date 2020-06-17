@@ -17,5 +17,5 @@ for version in $versions; do
 
     ttsc -p mocks/tsconfig.mock.json
 
-    find ./mocks -mindepth 2 -not -name "index.js" -exec rm {} \;
+    find ./mocks -mindepth 2 -not -name "index.js" -not -name ".gitkeep" -exec rm {} \;
 done
