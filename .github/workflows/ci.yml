@@ -1,4 +1,4 @@
-name: ci
+name: Continuous Integration
 
 on: 'push'
 
@@ -9,10 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Use Node.js 12.x LTS
+      - name: Use Node.js 14.x LTS
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '14.x'
           registry-url: https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
