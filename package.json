@@ -10,9 +10,9 @@
   "scripts": {
     "eslint": "eslint *.d.ts declarations/**/*.ts",
     "eslint:fix": "eslint --fix *.d.ts declarations/**/*.ts",
-    "mocks:generate:env:1.13.x": "./scripts/generate-mocks.sh 1.13.x",
-    "mocks:generate:env:2.5.x": "./scripts/generate-mocks.sh 2.5.x",
-    "mocks:generate:env:all": "./scripts/generate-mocks.sh",
+    "mocks:generate:env:1.13.x": "sh ./scripts/generate-mocks.sh 1.13.x",
+    "mocks:generate:env:2.5.x": "sh ./scripts/generate-mocks.sh 2.5.x",
+    "mocks:generate:env:all": "sh ./scripts/generate-mocks.sh",
     "test": "TS_NODE_PROJECT=\"test/tsconfig.json\" NODE_OPTIONS=\"$NODE_OPTIONS -r ts-node/register/transpile-only -r ./patch/jest ${INSPECT:-''}\" jest ${RUN_IN_BAND:-''} -c jest.config.ts",
     "test:debug": "INSPECT=\"--inspect-brk\" RUN_IN_BAND=\"-i\" yarn test",
     "postinstall": "yarn mocks:generate:env:all"

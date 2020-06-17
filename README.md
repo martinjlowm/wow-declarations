@@ -32,7 +32,7 @@ There's two steps to applying these declarations to your project:
 ```js
 {
     "compilerOptions": {
-        "types": ["lua-types/jit", "@wartoshika/wow-declarations"]
+        "types": ["lua-types/jit", "wow-declarations"]
     }
 }
 ```
@@ -45,13 +45,13 @@ may be imported in your tests as:
 - Classic
 
 ```
-import '@wartoshika/wow-declarations/mocks/1.13.x';
+import 'wow-declarations/mocks/1.13.x';
 ```
 
 - Classic TBC (if that becomes a reality - it's currently incomplete)
 
 ```
-import '@wartoshika/wow-declarations/mocks/2.5.x';
+import 'wow-declarations/mocks/2.5.x';
 ```
 
 (The following aren't available just yet...)
@@ -59,13 +59,13 @@ import '@wartoshika/wow-declarations/mocks/2.5.x';
 - Retail
 
 ```
-import '@wartoshika/wow-declarations/mocks/8.x';
+import 'wow-declarations/mocks/8.x';
 ```
 
 - Shadowlands
 
 ```
-import '@wartoshika/wow-declarations/mocks/9.x';
+import 'wow-declarations/mocks/9.x';
 ```
 
 Obviously, the above depends on the testing framework that you use - the idea
@@ -73,7 +73,7 @@ however, is to mutate the Node.js environment with modifications to
 `globalThis`. So you may use `import` or `require` wherever you'd like, as long
 as it's before your tests are initiated. For example, `jest` provides a config
 file which you can put these into. Another way is to add `-r
-@wartoshika/wow-declarations/mocks/<version>` as an argument to the Node
+wow-declarations/mocks/<version>` as an argument to the Node
 process.
 
 If you want to mock things yourself, check out the `ts-auto-mock` documentation
