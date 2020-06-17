@@ -25,6 +25,37 @@ There's two steps to applying these declarations to your project:
 }
 ```
 
+## Mocks
+
+Global environment mocks (e.g. CreateFrame) are generated on installation and
+may be imported in your tests as:
+
+- Classic
+
+```
+import '@wartoshika/wow-declarations/mocks/1.13.x';
+```
+
+(The following aren't available just yet...)
+
+- Classic TBC (if that becomes a reality - it's currently incomplete)
+
+```
+import '@wartoshika/wow-declarations/mocks/2.5.x';
+```
+
+- Retail
+
+```
+import '@wartoshika/wow-declarations/mocks/8.x';
+```
+
+- Shadowlands
+
+```
+import '@wartoshika/wow-declarations/mocks/9.x';
+```
+
 
 ## Contribution
 
