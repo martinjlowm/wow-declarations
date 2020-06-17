@@ -10,10 +10,12 @@
   "scripts": {
     "eslint": "eslint *.d.ts declarations/**/*.ts",
     "eslint:fix": "eslint --fix *.d.ts declarations/**/*.ts",
-    "mocks:typescriptify": "cat mocks/index.js | sed -E 's/^globalThis.([^ ]+) = createMock\\\\(\\\\);$/globalThis.\\\\1 = createMock<typeof \\\\1>\\\\(\\\\);/g' > mocks/index.intermediate.ts",
-    "mocks:generate": "NODE_OPTIONS=\"$NODE_OPTIONS -r ts-node/register/transpile-only\" ttsc -p mocks/tsconfig.first.json; yarn mocks:typescriptify; ttsc -p mocks/tsconfig.second.json",
+    "mocks:generate:env:1.13.x": "./scripts/generate-mocks.sh 1.13.x",
+    "mocks:generate:env:2.5.x": "./scripts/generate-mocks.sh 2.5.x",
+    "mocks:generate:env:all": "./scripts/generate-mocks.sh",
     "test": "TS_NODE_PROJECT=\"test/tsconfig.json\" NODE_OPTIONS=\"$NODE_OPTIONS -r ts-node/register/transpile-only -r ./patch/jest ${INSPECT:-''}\" jest ${RUN_IN_BAND:-''} -c jest.config.ts",
-    "test:debug": "INSPECT=\"--inspect-brk\" RUN_IN_BAND=\"-i\" yarn test"
+    "test:debug": "INSPECT=\"--inspect-brk\" RUN_IN_BAND=\"-i\" yarn test",
+    "postinstall": "mocks:generate:env:all"
   },
   "types": "declarations/index.d.ts",
   "devDependencies": {

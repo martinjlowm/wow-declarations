@@ -36,3 +36,7 @@ jobs:
       - name: 'Typecheck'
         run: |
           yarn tsc
+
+      - name: 'Generate environment (global) mocks'
+        run: |
+          yarn mocks:generate:env:all

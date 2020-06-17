@@ -7,4 +7,5 @@
 node_modules/
 
 mocks/*
-!mocks/index.ts
+!mocks/template.ts
+!mocks/*.json

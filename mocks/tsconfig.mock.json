@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "transform": "ts-auto-mock/transformer",
+        "debug": true,
+        "cacheBetweenTests": false,
+        "features": [
+          "overloads"
+        ]
+      }
+    ],
+  },
+  "include": ["./**/index.ts"]
+}
