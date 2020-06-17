@@ -1,3 +1,4 @@
+// NOTE: This is just for debugging, to trace log statements.
 ['log', 'warn', 'error'].forEach((func) => {
   const orig = console[func];
   console[func] = (...args) => {
