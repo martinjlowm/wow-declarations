@@ -2,17 +2,18 @@
   . (
      ;; Enable typescript-language-server and eslint LSP clients.
      (lsp-enabled-clients . (ts-ls eslint))
-     (eval . (let ((project-directory (car (dir-locals-find-file default-directory))))
+     (eval . (lexical-let ((project-directory (car (dir-locals-find-file default-directory))))
                (set (make-local-variable 'flycheck-javascript-eslint-executable)
-                    (concat project-directory ".vscode/pnpify/eslint/bin/eslint.js"))
+                    (concat project-directory ".yarn/sdks/eslint/bin/eslint.js"))
 
-               ;; (lsp-dependency 'typescript-language-server
-               ;;                 `(:system ,(concat project-directory ".vscode/pnpify/typescript-language-server/lib/cli.js")))
+               (eval-after-load 'lsp-clients
+                 '(progn
+                    (plist-put lsp-deps-providers
+                               :local (list :path (lambda (path) (concat project-directory ".yarn/sdks/" path))))))
+
                (lsp-dependency 'typescript-language-server
-                               `(:system ,(concat project-directory ".vscode/pnpify/typescript-language-server/lib/cli.js")))
+                               '(:local "typescript-language-server/lib/cli.js"))
                (lsp-dependency 'typescript
-                               `(:system ,(concat project-directory ".vscode/pnpify/typescript/bin/tsserver")))
+                               '(:local "typescript/bin/tsserver"))
 
-               ;; Re-(start) LSP to pick up the dependency changes above.
-               (lsp)
                )))))

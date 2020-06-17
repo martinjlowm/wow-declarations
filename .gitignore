@@ -1,10 +1,12 @@
+# Yarn
+.yarn/*
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+.pnp.*
+
 *.tgz
 .log/
-.pnp.*
-.yarn/build-state.yml
-.yarn/cache
-.yarn/unplugged
-node_modules/
 
 mocks/*
 !mocks/template.ts
