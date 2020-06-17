@@ -38,7 +38,7 @@
     "lua-types": "^2.7.0",
     "prettier": "^2.0.2",
     "sinon": "^9.0.2",
-    "ts-auto-mock": "portal:../ts-auto-mock/dist",
+    "ts-auto-mock": "exec:./scripts/ts-auto-mock.js",
     "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2",
     "tstl": "^2.4.2",
