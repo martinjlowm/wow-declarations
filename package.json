@@ -15,7 +15,7 @@
     "mocks:generate:env:all": "./scripts/generate-mocks.sh",
     "test": "TS_NODE_PROJECT=\"test/tsconfig.json\" NODE_OPTIONS=\"$NODE_OPTIONS -r ts-node/register/transpile-only -r ./patch/jest ${INSPECT:-''}\" jest ${RUN_IN_BAND:-''} -c jest.config.ts",
     "test:debug": "INSPECT=\"--inspect-brk\" RUN_IN_BAND=\"-i\" yarn test",
-    "postinstall": "mocks:generate:env:all"
+    "postinstall": "yarn mocks:generate:env:all"
   },
   "types": "declarations/index.d.ts",
   "devDependencies": {

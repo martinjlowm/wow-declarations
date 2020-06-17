@@ -30,6 +30,7 @@ jobs:
         run: |
           yarn tsc
 
-      - name: 'Generate environment (global) mocks'
+      - name: 'Assert generated environment (global) mocks'
         run: |
-          yarn mocks:generate:env:all
+          stat mocks/1.13.x/index.js 2>1 > /dev/null
+          stat mocks/2.5.x/index.js 2>1 > /dev/null
