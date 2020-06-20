@@ -6154,13 +6154,13 @@ resolve@^1.17.0:
 
 "ts-auto-mock@exec:./scripts/ts-auto-mock.js::locator=wow-declarations%40workspace%3A.":
   version: 2.2.6
-  resolution: "ts-auto-mock@exec:./scripts/ts-auto-mock.js#./scripts/ts-auto-mock.js::hash=942b7a&locator=wow-declarations%40workspace%3A."
+  resolution: "ts-auto-mock@exec:./scripts/ts-auto-mock.js#./scripts/ts-auto-mock.js::hash=a4b4b2&locator=wow-declarations%40workspace%3A."
   dependencies:
     lodash-es: ^4.17.15
     winston: ^3.2.1
   peerDependencies:
     typescript: ^3.8.3
-  checksum: 1610ad47465ae4f4dfdd72f4a951089cc6b4abca47f9cf1140dc7f45d5eed6cbbe90971f2d2d00c1090567151e865b167e5486e24b11013d65ac412b55b6ce52
+  checksum: b4b990c7adc878de25ed40e5053a448b377ffd18e2f0fee9daf6d62eabd9f17e1e2fabd64b4a0a39010161a5b1961e022b12e18a35989a31b4d729d070eca79a
   languageName: node
   linkType: hard
 
