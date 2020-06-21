@@ -1,6 +1,6 @@
-[![Build Status](https://github.com/martinjlowm/wow-declarations/workflows/ci/badge.svg)](https://travis-ci.org/wartoshika/wow-classic-declarations)
+![Continuous Integration](https://github.com/martinjlowm/wow-declarations/workflows/Continuous%20Integration/badge.svg)
 
-# TypeScript declarations the World of Warcraft LUA API
+# TypeScript declarations the World of Warcraft Lua API
 
 This is a fork of @wartoshika/wow-declarations.
 
