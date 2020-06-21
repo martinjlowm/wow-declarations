@@ -10,9 +10,9 @@
   "scripts": {
     "eslint": "eslint *.d.ts declarations/**/*.ts",
     "eslint:fix": "eslint --fix *.d.ts declarations/**/*.ts",
-    "mocks:generate:env:1.13.x": "sh ./scripts/generate-mocks.sh 1.13.x",
-    "mocks:generate:env:2.5.x": "sh ./scripts/generate-mocks.sh 2.5.x",
-    "mocks:generate:env:all": "sh ./scripts/generate-mocks.sh",
+    "mocks:generate:env:1.13.x": "echo \"» Generating mocks for 1.13.x...\" && yarn generate-mocks mocks/1.13.x/tsconfig.json",
+    "mocks:generate:env:2.5.x": "echo \"» Generating mocks for 2.5.x...\" && yarn generate-mocks mocks/2.5.x/tsconfig.json",
+    "mocks:generate:env:all": "yarn mocks:generate:env:1.13.x && yarn mocks:generate:env:2.5.x",
     "test": "TS_NODE_PROJECT=\"test/tsconfig.json\" NODE_OPTIONS=\"$NODE_OPTIONS -r ts-node/register/transpile-only -r ./patch/jest ${INSPECT:-''}\" jest ${RUN_IN_BAND:-''} -c jest.config.ts",
     "test:debug": "INSPECT=\"--inspect-brk\" RUN_IN_BAND=\"-i\" yarn test",
     "postinstall": "yarn mocks:generate:env:all"
@@ -39,6 +39,7 @@
     "prettier": "^2.0.2",
     "sinon": "^9.0.2",
     "ts-auto-mock": "exec:./scripts/ts-auto-mock.js",
+    "ts-auto-mock-env": "github:martinjlowm/ts-auto-mock-env#af0e4fdfa85b8a0a518670707f2cde95661ffa9a",
     "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2",
     "tstl": "^2.4.2",

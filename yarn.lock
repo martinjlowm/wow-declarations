@@ -6152,15 +6152,26 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
+"ts-auto-mock-env@github:martinjlowm/ts-auto-mock-env#af0e4fdfa85b8a0a518670707f2cde95661ffa9a":
+  version: 1.0.0
+  resolution: "ts-auto-mock-env@https://github.com/martinjlowm/ts-auto-mock-env.git#commit=af0e4fdfa85b8a0a518670707f2cde95661ffa9a"
+  dependencies:
+    typescript: ^3.9.5
+  bin:
+    generate-mocks: ./dist/scripts/generate-mocks.js
+  checksum: de37ad96b6b497074a7d6b95b20c5204784796f6e9adf5fc873ed73aa18cc3cc63f80589f40463c4c73ff0b07efc8d607b60e17c19eb7a570fcbe3fdd88485a1
+  languageName: node
+  linkType: hard
+
 "ts-auto-mock@exec:./scripts/ts-auto-mock.js::locator=wow-declarations%40workspace%3A.":
   version: 2.2.6
-  resolution: "ts-auto-mock@exec:./scripts/ts-auto-mock.js#./scripts/ts-auto-mock.js::hash=a4b4b2&locator=wow-declarations%40workspace%3A."
+  resolution: "ts-auto-mock@exec:./scripts/ts-auto-mock.js#./scripts/ts-auto-mock.js::hash=0f5a72&locator=wow-declarations%40workspace%3A."
   dependencies:
     lodash-es: ^4.17.15
     winston: ^3.2.1
   peerDependencies:
     typescript: ^3.8.3
-  checksum: b4b990c7adc878de25ed40e5053a448b377ffd18e2f0fee9daf6d62eabd9f17e1e2fabd64b4a0a39010161a5b1961e022b12e18a35989a31b4d729d070eca79a
+  checksum: 761feaa8911ac8b65e007fdf89e990e033e8696c72189d14afb078903e0670903e73c8cc6a8b5d7f1ba23daffa7bc3648b8fe2067e4f7bbee8307b19ef1b451a
   languageName: node
   linkType: hard
 
@@ -6349,6 +6360,16 @@ typescript@^3.8.3:
   languageName: node
   linkType: hard
 
+typescript@^3.9.5:
+  version: 3.9.5
+  resolution: "typescript@npm:3.9.5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 15618435493667083eb43dc7b36c4d3dd47fd9e9c8a14f0ac4019bbf6124b6cc518b6ed506400913db1bf50831207ee8201b5d827680076930b562923f4f18a0
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@^3.8.3#builtin<compat/typescript>":
   version: 3.8.3
   resolution: "typescript@patch:typescript@npm%3A3.8.3#builtin<compat/typescript>::version=3.8.3&hash=64df9d"
@@ -6356,6 +6377,16 @@ typescript@^3.8.3:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 7b29bcb0576cc81266c5b4e6f84bb5a760483fa80bcd7d9588b0d3e16063c733552acf686c8541b93be2cf29ec5d8360ec927509b11e4e723f0dc91366b9cb1a
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^3.9.5#builtin<compat/typescript>":
+  version: 3.9.5
+  resolution: "typescript@patch:typescript@npm%3A3.9.5#builtin<compat/typescript>::version=3.9.5&hash=64df9d"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 5849aa7c2d887b4d0b289530b45690fc26e606ea3719cf958dbb7f531ca1b968895bbef89b21ecb3903d5039fb047ebf6a0047ba147123060cbe1940ce5c91be
   languageName: node
   linkType: hard
 
@@ -6705,6 +6736,7 @@ typescript@^3.8.3:
     prettier: ^2.0.2
     sinon: ^9.0.2
     ts-auto-mock: "exec:./scripts/ts-auto-mock.js"
+    ts-auto-mock-env: "github:martinjlowm/ts-auto-mock-env#af0e4fdfa85b8a0a518670707f2cde95661ffa9a"
     ts-jest: ^26.1.0
     ts-node: ^8.10.2
     tstl: ^2.4.2

@@ -10,6 +10,4 @@
 
 dist/
 
-mocks/*
-!mocks/template.ts
-!mocks/*.json
+mocks/**/*.js
