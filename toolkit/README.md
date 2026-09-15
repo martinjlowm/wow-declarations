@@ -35,7 +35,7 @@ tests and the generator, and devenv provides the tooling.
 
 ## What generation produces
 
-`npm run generate` reads the machine-readable API documentation that ships in
+`yarn generate` reads the machine-readable API documentation that ships in
 `Interface/AddOns/Blizzard_APIDocumentationGenerated` at the commit each release
 pins in [`src/releases.ts`](src/releases.ts), and writes, per release:
 
