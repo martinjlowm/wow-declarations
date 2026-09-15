@@ -1,0 +1,30 @@
+{
+  "name": "wow-declarations-toolkit",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Generator and property/fuzz test harness that keeps wow-declarations in step with Gethe/wow-ui-source and compiles to Lua via TypeScriptToLua.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "generate": "tsx src/generate.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "check:releases": "node scripts/ensure-root-modules.mjs && tsc -p ../tsconfig.12.1.x.json && tsc -p ../tsconfig.5.5.x.json && tsc -p ../tsconfig.1.15.x.json",
+    "build:lua": "tstl -p tstl/tsconfig.tstl.json"
+  },
+  "devDependencies": {
+    "@types/luaparse": "^0.2.12",
+    "@types/node": "^20.14.0",
+    "@typescript-to-lua/language-extensions": "^1.19.0",
+    "fast-check": "^4.10.0",
+    "luaparse": "^0.3.1",
+    "lua-types": "^2.13.1",
+    "tsx": "^4.19.0",
+    "typescript": "6.0.2",
+    "typescript-to-lua": "^1.37.1",
+    "vitest": "^2.1.0"
+  }
+}

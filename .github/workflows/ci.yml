@@ -34,3 +34,33 @@ jobs:
         run: |
           stat mocks/1.13.x/index.js 2>1 > /dev/null
           stat mocks/2.5.x/index.js 2>1 > /dev/null
+
+  toolkit:
+    name: 'Generator, property/fuzz tests, Lua build'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: toolkit
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 20.x LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: 'Install toolkit dependencies'
+        run: npm ci
+
+      - name: 'Type check the generator and tests'
+        run: npm run typecheck
+
+      - name: 'Property and fuzz tests'
+        run: npm test
+
+      - name: 'Type check the committed release declarations'
+        run: npm run check:releases
+
+      - name: 'Compile the sample addon to Lua'
+        run: npm run build:lua

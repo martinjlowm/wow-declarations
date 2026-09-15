@@ -1,24 +1,10 @@
 /** @noSelfInFile */
 
 declare namespace WoWAPI {
-  type AddonMessageType = 'PARTY' | 'RAID' | 'GUILD' | 'BATTLEGROUND' | 'WHISPER' | 'CHANNEL';
-  type ChatFlag = 'AFK' | 'DND' | 'GM';
-  type ChatJoinLeftType = 'YOU_JOINED' | 'YOU_LEFT' | 'THROTTLED';
-  type ChatUserNoticeType =
-    | 'ANNOUNCEMENTS_OFF'
-    | 'ANNOUNCEMENTS_ON'
-    | 'BANNED'
-    | 'OWNER_CHANGED'
-    | 'INVALID_NAME'
-    | 'INVITE'
-    | 'MODERATION_OFF'
-    | 'MODERATION_ON'
-    | 'MUTED'
-    | 'NOT_MEMBER'
-    | 'NOT_MODERATED'
-    | 'SET_MODERATOR'
-    | 'UNSET_MODERATOR';
-
+  // AddonMessageType and the other chat string enums moved to event.d.ts so a
+  // release build can drop this file (superseded by the generated C_ChatInfo
+  // namespace) without losing them. Both files merge into WoWAPI in the legacy
+  // builds that still include this one.
   interface C_ChatInfo {
     /**
      * Registers an addon message prefix, allowing messages sent over addon channels with that prefix to be received by the client

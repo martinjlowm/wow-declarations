@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["esnext"],
+    "strict": true,
+    "rootDir": "addon",
+    "outDir": "build",
+    "types": ["lua-types/5.1", "@typescript-to-lua/language-extensions"],
+    "baseUrl": "../..",
+    "paths": { "@/*": ["declarations/*"] },
+    "ignoreDeprecations": "6.0",
+    "skipLibCheck": true
+  },
+  "tstl": {
+    "luaTarget": "5.1",
+    "luaLibImport": "require",
+    "noImplicitSelf": true,
+    "luaPlugins": [{ "name": "./plugins/protected-call-guard.cjs" }]
+  },
+  "include": [
+    "addon/**/*.ts",
+    "../../generated/12.1.x/**/*.d.ts",
+    "../../declarations/**/*.d.ts"
+  ],
+  "exclude": [
+    "../../declarations/index.d.ts",
+    "../../declarations/chat-info.d.ts",
+    "../../declarations/black-market.d.ts"
+  ]
+}
