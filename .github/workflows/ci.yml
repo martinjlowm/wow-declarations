@@ -34,3 +34,43 @@ jobs:
         run: |
           stat mocks/1.13.x/index.js 2>1 > /dev/null
           stat mocks/2.5.x/index.js 2>1 > /dev/null
+
+  toolkit:
+    name: 'Generator, property/fuzz tests, Lua build'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: toolkit
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Node with Corepack for Yarn 4 (the vendored release in
+      # toolkit/.yarn/releases pins the exact version), and Bun as the test
+      # runner. devenv gives the same three tools locally.
+      - name: Use Node.js 24.x LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: 'Install toolkit dependencies (Yarn 4, node-modules linker)'
+        run: yarn install --immutable
+
+      - name: 'Type check the generator and tests'
+        run: yarn typecheck
+
+      - name: 'Property and fuzz tests (bun test)'
+        run: yarn test
+
+      - name: 'Type check the committed release declarations'
+        run: yarn check:releases
+
+      - name: 'Compile the sample addon to Lua'
+        run: yarn build:lua

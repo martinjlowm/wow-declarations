@@ -1,6 +1,28 @@
 /** @noSelfInFile */
 
 declare namespace WoWAPI {
+  // Chat/addon-message string enums used by the event payloads below and by the
+  // hand-written C_ChatInfo. They live here so a release build can drop the
+  // hand-written chat-info.d.ts (superseded by the generated C_ChatInfo
+  // namespace) without losing the types the events still reference.
+  type AddonMessageType = 'PARTY' | 'RAID' | 'GUILD' | 'BATTLEGROUND' | 'WHISPER' | 'CHANNEL';
+  type ChatFlag = 'AFK' | 'DND' | 'GM';
+  type ChatJoinLeftType = 'YOU_JOINED' | 'YOU_LEFT' | 'THROTTLED';
+  type ChatUserNoticeType =
+    | 'ANNOUNCEMENTS_OFF'
+    | 'ANNOUNCEMENTS_ON'
+    | 'BANNED'
+    | 'OWNER_CHANGED'
+    | 'INVALID_NAME'
+    | 'INVITE'
+    | 'MODERATION_OFF'
+    | 'MODERATION_ON'
+    | 'MUTED'
+    | 'NOT_MEMBER'
+    | 'NOT_MODERATED'
+    | 'SET_MODERATOR'
+    | 'UNSET_MODERATOR';
+
   type TypedEvents = {
     /**
      * Fired when an achievement is gained

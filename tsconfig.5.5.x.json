@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "declarations/*"
+      ]
+    },
+    "ignoreDeprecations": "6.0",
+    "types": [
+      "lua-types/5.1",
+      "@typescript-to-lua/language-extensions"
+    ],
+    "target": "esnext",
+    "lib": [
+      "esnext"
+    ],
+    "removeComments": false
+  },
+  "include": [
+    "generated/5.5.x/**/*.d.ts",
+    "declarations/**/*.d.ts"
+  ],
+  "exclude": [
+    "declarations/index.d.ts",
+    "declarations/chat-info.d.ts",
+    "declarations/black-market.d.ts"
+  ]
+}

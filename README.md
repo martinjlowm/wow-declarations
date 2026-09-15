@@ -8,6 +8,37 @@ This is a fork of @wartoshika/wow-declarations.
 - qhun-transpiler ([GitHub-Page](https://github.com/wartoshika/qhun-transpiler))
 - TypeScriptToLua ([GitHub-Page](https://github.com/TypeScriptToLua/TypeScriptToLua)) - *Thanks to tstirrat*
 
+## Release-specific declarations
+
+The `declarations/` directory is the original hand-written base. On top of it,
+[`toolkit/`](toolkit) generates typed `C_*` namespaces, `Enum` members, table
+structures and event payloads from the machine-readable API documentation in
+[Gethe/wow-ui-source](https://github.com/Gethe/wow-ui-source), one set per game
+release. Each release pins the upstream commit it was generated from, so a
+regenerate is reproducible.
+
+The generated types land in `generated/<release>/` and a matching
+`tsconfig.<release>.json` at the repository root layers them over the base:
+
+| tsconfig | client | wow-ui-source branch |
+| --- | --- | --- |
+| `tsconfig.12.1.x.json` | Retail 12.1.0 | `live` |
+| `tsconfig.5.5.x.json` | Mists of Pandaria Classic 5.5.4 | `classic` |
+| `tsconfig.1.15.x.json` | Classic Era 1.15.9 | `classic_era` |
+
+An addon project points its own `tsconfig.json` at one of these, for example
+`{ "extends": "wow-declarations/tsconfig.12.1.x.json" }`, and gets that release's
+API surface. The generated `C_ChatInfo`/`C_BlackMarket` supersede the two
+hand-written tables, so those base files (and the legacy aggregate index) are
+excluded from a release build; the legacy `1.13.x`/`2.5.x`/`3.4.x` entry points
+still use the hand-written versions.
+
+`toolkit/` is a Yarn 4 package (Bun as the test runner, devenv for the
+toolchain) carrying a property/fuzz test suite (`fast-check` on `bun test`) and
+a TypeScriptToLua build with a protected-API guard. See
+[`toolkit/README.md`](toolkit/README.md) for regeneration, testing and the Lua
+build.
+
 ## Requirements
 
 - Yarn 2 (package manager) - The current version uses a patched version of `ts-auto-mock` to generate mocks and

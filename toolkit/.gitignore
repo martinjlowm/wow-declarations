@@ -1,0 +1,16 @@
+# Dependencies installed by Yarn's node-modules linker (what Bun resolves from).
+/node_modules
+
+# Yarn 4 state, but keep the vendored release that pins Yarn 4 for this package.
+/.yarn/*
+!/.yarn/releases
+/.pnp.*
+
+# devenv / direnv
+/.devenv*
+/.direnv
+/devenv.local.nix
+
+# Generator checkout cache and TypeScriptToLua build output.
+/cache
+/tstl/build
