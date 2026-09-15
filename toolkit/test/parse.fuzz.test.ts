@@ -1,5 +1,5 @@
 import fc from "fast-check";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "bun:test";
 
 import { decodeLuaString, parseDocFile } from "../src/parse.js";
 import { systemArb } from "./arbitraries.js";
@@ -63,7 +63,7 @@ describe("parseDocFile round trip", () => {
     fc.assert(
       fc.property(systemArb, (system) => {
         const parsed = parseDocFile(toDocFile(system));
-        expect(parsed).toEqual(prune(system));
+        expect(parsed).toEqual(prune(system) as typeof parsed);
       }),
       { numRuns: 100 },
     );

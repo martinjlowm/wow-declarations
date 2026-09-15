@@ -33,8 +33,9 @@ hand-written tables, so those base files (and the legacy aggregate index) are
 excluded from a release build; the legacy `1.13.x`/`2.5.x`/`3.4.x` entry points
 still use the hand-written versions.
 
-`toolkit/` also carries a property/fuzz test suite (`fast-check` on `vitest`)
-and a TypeScriptToLua build with a protected-API guard. See
+`toolkit/` is a Yarn 4 package (Bun as the test runner, devenv for the
+toolchain) carrying a property/fuzz test suite (`fast-check` on `bun test`) and
+a TypeScriptToLua build with a protected-API guard. See
 [`toolkit/README.md`](toolkit/README.md) for regeneration, testing and the Lua
 build.
 

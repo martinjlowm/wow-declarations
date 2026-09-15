@@ -1,5 +1,5 @@
 import fc from "fast-check";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "bun:test";
 
 import { buildContext, emitParams, emitRelease, emitReturns } from "../src/emit.js";
 import type { DocField } from "../src/model.js";

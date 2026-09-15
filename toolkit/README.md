@@ -5,17 +5,33 @@ This directory generates release-specific WoW API declarations from
 authors a fast TypeScript feedback loop that compiles to Lua with
 [TypeScriptToLua](https://github.com/TypeScriptToLua/TypeScriptToLua).
 
-It is a standalone npm package so it does not depend on the repository's legacy
-Yarn 2 plus `ts-auto-mock` mock pipeline.
+It is a standalone Yarn 4 package so it does not depend on the repository's
+legacy Yarn 2 plus `ts-auto-mock` mock pipeline.
 
 ```
 cd toolkit
-npm install
-npm run generate        # refresh generated/<release> and tsconfig.<release>.json
-npm test                # property + fuzz suite (vitest + fast-check)
-npm run build:lua       # compile the sample addon to Lua
-npm run check:releases  # type-check the committed release declarations
+yarn install            # Yarn 4, node-modules linker (see Toolchain below)
+yarn generate           # refresh generated/<release> and tsconfig.<release>.json
+yarn test               # property + fuzz suite (bun test + fast-check)
+yarn build:lua          # compile the sample addon to Lua
+yarn check:releases     # type-check the committed release declarations
 ```
+
+## Toolchain
+
+The setup follows FactbirdHQ/agents-mj: Yarn 4 manages packages, Bun runs the
+tests and the generator, and devenv provides the tooling.
+
+- `devenv` (`.envrc`, `devenv.nix`, `devenv.yaml`) puts Node 24, Yarn 4, Bun,
+  git and treefmt on `PATH` and runs `yarn install` on shell entry. With direnv,
+  `cd toolkit` is enough; otherwise run `devenv shell`.
+- `.yarnrc.yml` sets `nodeLinker: node-modules`, so Yarn writes a real
+  `node_modules` tree that Bun resolves dependencies from (Bun does not read
+  Yarn's Plug'n'Play), and `nmMode: hardlinks-global` shares the files with other
+  node-modules projects.
+- Yarn 4 is vendored at `.yarn/releases/yarn-4.14.1.cjs` with a matching
+  `yarnPath`, because the repository root ships a legacy Yarn 2 through its own
+  `yarnPath` and Yarn merges rc files up the tree.
 
 ## What generation produces
 
@@ -46,7 +62,7 @@ pure, which is what lets the property suite drive them with generated input.
 
 ## Property and fuzz tests
 
-`test/` uses `fast-check` on `vitest`. The suites fuzz the parser with a
+`test/` uses `fast-check` on `bun test`. The suites fuzz the parser with a
 serialize-then-parse round trip, drive `mapType`/`safeParamName` with adversarial
 names, and type-check emitter output for randomly generated documentation so a
 malformed signature (for example a required tuple element after an optional one)
